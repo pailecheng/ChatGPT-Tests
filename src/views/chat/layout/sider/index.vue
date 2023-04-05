@@ -73,15 +73,15 @@ watch(
       <main class="flex flex-col flex-1 min-h-0">
         <div class="p-4">
           <NButton dashed block @click="handleAdd">
-            {{ $t('chat.newChatButton') }}
+            New chat
           </NButton>
         </div>
         <div class="flex-1 min-h-0 pb-4 overflow-hidden">
           <List />
         </div>
         <div class="p-4">
-          <NButton block @click="show = true">
-            {{ $t('store.siderButton') }}
+          <NButton block><!--隐藏功能 block @click="show = true"-->
+            待定功能...
           </NButton>
         </div>
       </main>

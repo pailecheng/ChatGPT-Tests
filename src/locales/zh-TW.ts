@@ -28,8 +28,7 @@ export default {
     unauthorizedTips: '未經授權，請先進行驗證。',
   },
   chat: {
-    newChatButton: '新建對話',
-    placeholder: '來說點什麼...（Shift + Enter = 換行，"/" 觸發提示詞）',
+    placeholder: '來說點什麼...（Shift + Enter = 換行）',
     placeholderMobile: '來說點什麼...',
     copy: '複製',
     copied: '複製成功',
@@ -69,10 +68,8 @@ export default {
     socks: 'Socks',
     httpsProxy: 'HTTPS Proxy',
     balance: 'API余額',
-    monthlyUsage: '本月使用量',
   },
   store: {
-    siderButton: '提示詞商店',
     local: '本機',
     online: '線上',
     title: '標題',

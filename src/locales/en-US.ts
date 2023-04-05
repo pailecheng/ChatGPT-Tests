@@ -28,8 +28,7 @@ export default {
     unauthorizedTips: 'Unauthorized, please verify first.',
   },
   chat: {
-    newChatButton: 'New Chat',
-    placeholder: 'Ask me anything...(Shift + Enter = line break, "/" to trigger prompts)',
+    placeholder: 'Ask me anything...(Shift + Enter = line break)',
     placeholderMobile: 'Ask me anything...',
     copy: 'Copy',
     copied: 'Copied',
@@ -69,10 +68,8 @@ export default {
     socks: 'Socks',
     httpsProxy: 'HTTPS Proxy',
     balance: 'API Balance',
-    monthlyUsage: 'Monthly Usage',
   },
   store: {
-    siderButton: 'Prompt Store',
     local: 'Local',
     online: 'Online',
     title: 'Title',
