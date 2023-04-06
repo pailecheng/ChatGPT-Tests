@@ -80,7 +80,7 @@ watch(
           <List />
         </div>
         <div class="p-4">
-          <NButton block @click="show"><!--隐藏功能 block @click="show = true"-->
+          <NButton block @click="show = true"><!--隐藏功能 block @click="show = true"-->
             待定功能...
           </NButton>
         </div>
