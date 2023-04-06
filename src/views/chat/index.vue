@@ -401,7 +401,9 @@ function handleEnter(event: KeyboardEvent) {
     }
   }
 }
-
+function handLogin(){
+  console.log("登录");
+}
 function handleStop() {
   if (loading.value) {
     controller.abort()
@@ -487,6 +489,9 @@ onUnmounted(() => {
             <div class="flex items-center justify-center mt-4 text-center text-neutral-300">
               <SvgIcon icon="ri:bubble-chart-fill" class="mr-2 text-3xl" />
               <span>Aha~</span>
+            </div>
+            <div>
+              <button @click="handLogin">登录</button>
             </div>
           </template>
           <template v-else>
