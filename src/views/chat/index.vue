@@ -24,7 +24,7 @@ const openLongReply = import.meta.env.VITE_GLOB_OPEN_LONG_REPLY === 'true'
 const route = useRoute()
 const dialog = useDialog()
 const ms = useMessage()
-
+const aaa= "测试"
 const chatStore = useChatStore()
 
 useCopyCode()
@@ -491,7 +491,7 @@ onUnmounted(() => {
               <span>ChatGPT~</span>
             </div>
             <div>
-              <button @click="handLogin">登录</button>
+              <button @click="handLogin">登录{{ aaa }}</button>
             </div>
           </template>
           <template v-else>
