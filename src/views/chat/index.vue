@@ -42,7 +42,7 @@ const conversationList = computed(() => dataSources.value.filter(item => (!item.
 const prompt = ref<string>('')
 const loading = ref<boolean>(false)
 const inputRef = ref<Ref | null>(null)
-const aaa = "测试"
+
 // 添加PromptStore
 const promptStore = usePromptStore()
 
@@ -491,7 +491,7 @@ onUnmounted(() => {
               <span>ChatGPT~</span>
             </div>
             <div>
-              <button @click="handLogin">登录{aaa}</button>
+              <button @click="handLogin">登录</button>
             </div>
           </template>
           <template v-else>
