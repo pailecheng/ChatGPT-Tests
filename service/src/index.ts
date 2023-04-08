@@ -53,6 +53,10 @@ router.post('/config', auth, async (req, res) => {
   }
 })
 
+router.post('/tests', auth, async (req, res) => {
+  res.send('hello world!')
+})
+
 router.post('/session', async (req, res) => {
   try {
     const AUTH_SECRET_KEY = process.env.AUTH_SECRET_KEY
