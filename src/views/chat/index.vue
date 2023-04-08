@@ -492,7 +492,7 @@ onUnmounted(() => {
               <span>ChatGPT~</span>
             </div>
             <div>
-              <button @click="handLogin">登录{{test}}</button>
+              <button @click="handLogin">登录{{test.status}}{{test.message}}{{test.data}}</button>
             </div>
           </template>
           <template v-else>

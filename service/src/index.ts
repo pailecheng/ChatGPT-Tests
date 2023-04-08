@@ -54,7 +54,7 @@ router.post('/config', auth, async (req, res) => {
 })
 
 router.post('/tests', auth, async (req, res) => {
-  res.send('hello world!')
+  res.send({ status: 'Success', message: '测试成功', data: 'aaaaaaaa' })
 })
 
 router.post('/session', async (req, res) => {
