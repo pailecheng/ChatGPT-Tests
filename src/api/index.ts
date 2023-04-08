@@ -8,7 +8,7 @@ export function fetchChatAPI<T = any>(
   signal?: GenericAbortSignal,
 ) {
   return post<T>({
-    url: '/cha',
+    url: '/chat',
     data: { prompt, options },
     signal,
   })
