@@ -27,7 +27,8 @@ const openLongReply = import.meta.env.VITE_GLOB_OPEN_LONG_REPLY === 'true'
 const route = useRoute()
 const dialog = useDialog()
 const ms = useMessage()
-const test =  fetchChatTests<TestsResponse>()
+const abc =  await fetchChatTests<TestsResponse>()
+const test = abc.data
 const chatStore = useChatStore()
 
 useCopyCode()
