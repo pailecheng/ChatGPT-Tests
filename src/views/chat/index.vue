@@ -24,7 +24,7 @@ interface TestsResponse {
   data: string;
 }
 const abc =  await fetchChatTests<TestsResponse>()
-const test = abc.data
+const tests = abc.data
 const route = useRoute()
 const dialog = useDialog()
 const ms = useMessage()
@@ -494,7 +494,7 @@ onUnmounted(() => {
               <span>ChatGPT~</span>
             </div>
             <div>
-              <button @click="handLogin">登录{{ test }}</button>
+              <button @click="handLogin">登录</button>
             </div>
           </template>
           <template v-else>
@@ -566,5 +566,6 @@ onUnmounted(() => {
         </div>
       </div>
     </footer>
+    <div><p>{{ tests }}</p></div>
   </div>
 </template>
