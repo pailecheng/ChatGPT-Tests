@@ -53,7 +53,7 @@ router.post('/config', auth, async (req, res) => {
   }
 })
 
-router.get('/tests', auth, async (req, res) => {
+router.post('/tests', auth, async (req, res) => {
   try {
     const OPENAI_API_KEY = process.env.OPENAI_API_KEY
     const hasAuth = isNotEmptyString(OPENAI_API_KEY)
