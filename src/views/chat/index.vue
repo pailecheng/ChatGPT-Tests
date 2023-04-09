@@ -15,11 +15,6 @@ import { HoverButton, SvgIcon } from '@/components/common'
 import { useBasicLayout } from '@/hooks/useBasicLayout'
 import { useChatStore, usePromptStore } from '@/store'
 import { fetchChatAPIProcess } from '@/api'
-import { fetchChatTests } from '@/api'
-import { t } from '@/locales'
-interface TestsResponse {
-  data: string;
-}
 let controller = new AbortController()
 
 const openLongReply = import.meta.env.VITE_GLOB_OPEN_LONG_REPLY === 'true'
@@ -27,8 +22,6 @@ const openLongReply = import.meta.env.VITE_GLOB_OPEN_LONG_REPLY === 'true'
 const route = useRoute()
 const dialog = useDialog()
 const ms = useMessage()
-const abc =  await fetchChatTests<TestsResponse>()
-const test = abc.data
 const chatStore = useChatStore()
 
 useCopyCode()
@@ -495,7 +488,7 @@ onUnmounted(() => {
               <span>ChatGPT~</span>
             </div>
             <div>
-              <button @click="handLogin">登录{{test}}</button>
+              <button @click="handLogin">登录</button>
             </div>
           </template>
           <template v-else>
