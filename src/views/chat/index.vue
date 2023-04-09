@@ -566,6 +566,5 @@ onUnmounted(() => {
         </div>
       </div>
     </footer>
-    <div><p>{{ tests }}</p></div>
   </div>
 </template>
