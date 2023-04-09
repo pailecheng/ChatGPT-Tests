@@ -18,7 +18,7 @@ import { fetchChatAPIProcess } from '@/api'
 import { fetchChatTests } from '@/api'
 import { t } from '@/locales'
 interface TestsResponse {
-  aaaa: '1234556'
+  data: string;
 }
 let controller = new AbortController()
 
