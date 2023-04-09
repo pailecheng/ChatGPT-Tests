@@ -17,7 +17,9 @@ import { useChatStore, usePromptStore } from '@/store'
 import { fetchChatAPIProcess } from '@/api'
 import { fetchChatTests } from '@/api'
 import { t } from '@/locales'
-
+interface TestsResponse {
+  aaaa: '1234556'
+}
 let controller = new AbortController()
 
 const openLongReply = import.meta.env.VITE_GLOB_OPEN_LONG_REPLY === 'true'
@@ -25,7 +27,7 @@ const openLongReply = import.meta.env.VITE_GLOB_OPEN_LONG_REPLY === 'true'
 const route = useRoute()
 const dialog = useDialog()
 const ms = useMessage()
-const test = fetchChatTests()
+const test =  fetchChatTests<TestsResponse>()
 const chatStore = useChatStore()
 
 useCopyCode()

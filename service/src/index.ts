@@ -54,14 +54,7 @@ router.post('/config', auth, async (req, res) => {
 })
 
 router.post('/tests', auth, async (req, res) => {
-  try {
-    const OPENAI_API_KEY = process.env.OPENAI_API_KEY
-    const hasAuth = isNotEmptyString(OPENAI_API_KEY)
-    res.send({ status: 'Success！！！', message: '', data: { auth: hasAuth, model: currentModel() } })
-  }
-  catch (error) {
-    res.send({ status: 'Fail', message: error.message, data: null })
-  }
+  res.send({data:'hello world!'});
 })
 
 router.post('/session', async (req, res) => {
