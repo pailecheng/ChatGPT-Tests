@@ -16,11 +16,15 @@ import { useBasicLayout } from '@/hooks/useBasicLayout'
 import { useChatStore, usePromptStore } from '@/store'
 import { fetchChatAPIProcess } from '@/api'
 import { t } from '@/locales'
-
+import { fetchChatTests } from '@/api'
 let controller = new AbortController()
 
 const openLongReply = import.meta.env.VITE_GLOB_OPEN_LONG_REPLY === 'true'
-
+interface TestsResponse {
+  data: string;
+}
+const abc =  await fetchChatTests<TestsResponse>()
+const test = abc.data
 const route = useRoute()
 const dialog = useDialog()
 const ms = useMessage()
@@ -490,7 +494,7 @@ onUnmounted(() => {
               <span>ChatGPT~</span>
             </div>
             <div>
-              <button @click="handLogin">登录</button>
+              <button @click="handLogin">登录{{ test }}</button>
             </div>
           </template>
           <template v-else>
