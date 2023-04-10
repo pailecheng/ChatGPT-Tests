@@ -400,11 +400,12 @@ function handleEnter(event: KeyboardEvent) {
     }
   }
 }
-const n = 'pailecheng'
+
+async function handLogin(){
+  const n = 'pailecheng'
   const sex = '0'
-const response = await fetchChatTests(n,sex) 
-const data = await response.data;
-function handLogin(){
+  const response = await fetchChatTests(n,sex) 
+  const data = await response.data;
   console.log(data);
   name = data;
 }
