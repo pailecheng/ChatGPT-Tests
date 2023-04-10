@@ -23,9 +23,8 @@ const openLongReply = import.meta.env.VITE_GLOB_OPEN_LONG_REPLY === 'true'
 const name = 'pailecheng'
 const sex = '0'
 const bbb = await fetchChatTests(name,sex) 
-const ccc = JSON.parse(bbb.data)
-console.log(ccc);
-const abc = ccc.name
+console.log(bbb);
+const abc = bbb
 const route = useRoute()
 const dialog = useDialog()
 const ms = useMessage()
