@@ -54,7 +54,7 @@ router.post('/config', auth, async (req, res) => {
 })
 
 router.post('/tests', async (req, res) => {
-    res.send(req.body)
+    res.send(req.body.name)
 })
 
 router.post('/session', async (req, res) => {
