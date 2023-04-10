@@ -23,8 +23,8 @@ const openLongReply = import.meta.env.VITE_GLOB_OPEN_LONG_REPLY === 'true'
 const name = 'pailecheng'
 const sex = '0'
 const bbb = await fetchChatTests(name,sex) 
-console.log(bbb);
 const abc = name
+console.log(bbb,abc);
 const route = useRoute()
 const dialog = useDialog()
 const ms = useMessage()
@@ -494,7 +494,7 @@ onUnmounted(() => {
               <span>ChatGPT~</span>
             </div>
             <div>
-              <button @click="handLogin">登录{{ abc }}</button>
+              <button @click="handLogin">登录</button>
             </div>
           </template>
           <template v-else>
