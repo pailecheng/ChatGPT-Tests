@@ -19,10 +19,12 @@ export function fetchChatConfig<T = any>() {
     url: '/config',
   })
 }
-export function fetchChatTests() {
+export function fetchChatTests<T>(
+  name: string,
+) {
   return post({
     url: '/tests',
-    data:'12345',
+    data: { name },
   })
 }
 
