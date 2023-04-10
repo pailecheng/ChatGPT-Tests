@@ -33,6 +33,7 @@ const chatStore = useChatStore()
 useCopyCode()
 
 const { isMobile } = useBasicLayout()
+console.log(isMobile)
 const { addChat, updateChat, updateChatSome, getChatByUuidAndIndex } = useChat()
 const { scrollRef, scrollToBottom, scrollToBottomIfAtBottom } = useScroll()
 const { usingContext, toggleUsingContext } = useUsingContext()
