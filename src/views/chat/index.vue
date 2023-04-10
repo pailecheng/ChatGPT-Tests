@@ -27,7 +27,7 @@ const ms = useMessage()
 const chatStore = useChatStore()
 
 useCopyCode()
-const name =''
+var name =''
 const { isMobile } = useBasicLayout()
 console.log(isMobile)
 const { addChat, updateChat, updateChatSome, getChatByUuidAndIndex } = useChat()
