@@ -19,7 +19,7 @@ export function fetchChatConfig<T = any>() {
     url: '/config',
   })
 }
-export function fetchChatTests<T>(
+export function fetchChatTests(
   name:string,
   sex:string,
 ) {
