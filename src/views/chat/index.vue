@@ -401,13 +401,13 @@ function handleEnter(event: KeyboardEvent) {
     }
   }
 }
-const name = 'pailecheng'
-const sex = '0'
-const bbb = await fetchChatTests(name,sex) 
-const abc = name
-console.log(bbb,abc);
+
 function handLogin(){
-  console.log("登录");
+  const name = 'pailecheng'
+  const sex = '0'
+  const bbb = fetchChatTests(name,sex) 
+  const abc = name
+  console.log(bbb,abc);
 }
 function handleStop() {
   if (loading.value) {
