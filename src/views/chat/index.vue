@@ -23,9 +23,10 @@ const openLongReply = import.meta.env.VITE_GLOB_OPEN_LONG_REPLY === 'true'
 interface TestsResponse {
   name: string
 }
-const ddd = 'pppp'
-const ccc = await fetchChatTests<TestsResponse>(ddd) 
-const abc = ccc.data
+const aaa = 'pppp'
+const bbb = await fetchChatTests<TestsResponse>(aaa) 
+const ccc = JSON.parse(bbb.data)
+const abc = ccc.name
 const route = useRoute()
 const dialog = useDialog()
 const ms = useMessage()
