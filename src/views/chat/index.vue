@@ -406,7 +406,9 @@ async function handLogin(){
   const sex = '0'
   const response = await fetchChatTests(n,sex) 
   const data = await response;
-  console.log(data);
+  const aaa = data.toString();
+  console.log(aaa);
+  name = aaa;
 }
 function handleStop() {
   if (loading.value) {
