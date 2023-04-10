@@ -27,13 +27,12 @@ const ms = useMessage()
 const chatStore = useChatStore()
 
 useCopyCode()
-
+const name =''
 const { isMobile } = useBasicLayout()
 console.log(isMobile)
 const { addChat, updateChat, updateChatSome, getChatByUuidAndIndex } = useChat()
 const { scrollRef, scrollToBottom, scrollToBottomIfAtBottom } = useScroll()
 const { usingContext, toggleUsingContext } = useUsingContext()
-
 const { uuid } = route.params as { uuid: string }
 
 const dataSources = computed(() => chatStore.getChatByUuid(+uuid))
@@ -403,11 +402,11 @@ function handleEnter(event: KeyboardEvent) {
 }
 
 function handLogin(){
-  const name = 'pailecheng'
+  const n = 'pailecheng'
   const sex = '0'
-  const bbb = fetchChatTests(name,sex) 
-  const abc = name
-  console.log(bbb,abc);
+  const bbb = fetchChatTests(n,sex) 
+  console.log(bbb);
+  name = bbb;
 }
 function handleStop() {
   if (loading.value) {
@@ -496,7 +495,7 @@ onUnmounted(() => {
               <span>ChatGPT~</span>
             </div>
             <div>
-              <button @click="handLogin">登录{{ abc }}</button>
+              <button @click="handLogin">登录{{ name }}</button>
             </div>
           </template>
           <template v-else>
