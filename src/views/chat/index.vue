@@ -24,7 +24,8 @@ interface TestsResponse {
   name: string
 }
 const ddd = 'pppp'
-const abc = await fetchChatTests<TestsResponse>(ddd) 
+const ccc = await fetchChatTests<TestsResponse>(ddd) 
+const abc = ccc.data
 const route = useRoute()
 const dialog = useDialog()
 const ms = useMessage()
