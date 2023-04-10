@@ -406,8 +406,7 @@ async function handLogin(){
   const sex = "男";
   const response = await fetchChatTests(n,sex); 
   const {data} = response;
-  console.log(data.vue);
-  name = data.vue;
+  console.log(data);
 }
 function handleStop() {
   if (loading.value) {
