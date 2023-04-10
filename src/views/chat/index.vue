@@ -16,7 +16,7 @@ import { useBasicLayout } from '@/hooks/useBasicLayout'
 import { useChatStore, usePromptStore } from '@/store'
 import { fetchChatAPIProcess } from '@/api'
 import { t } from '@/locales'
-import { fetchChatTests } from '@/api'
+//import { fetchChatTests } from '@/api'
 let controller = new AbortController()
 
 const openLongReply = import.meta.env.VITE_GLOB_OPEN_LONG_REPLY === 'true'
@@ -29,7 +29,6 @@ const chatStore = useChatStore()
 useCopyCode()
 var name =''
 const { isMobile } = useBasicLayout()
-console.log(isMobile)
 const { addChat, updateChat, updateChatSome, getChatByUuidAndIndex } = useChat()
 const { scrollRef, scrollToBottom, scrollToBottomIfAtBottom } = useScroll()
 const { usingContext, toggleUsingContext } = useUsingContext()
@@ -402,11 +401,8 @@ function handleEnter(event: KeyboardEvent) {
 }
 
 async function handLogin(){
-  const n  ="pailecheng";
-  const sex = "男";
-  const response = await fetchChatTests(n,sex); 
-  const abc = await JSON.stringify(response)
-  console.log(abc);
+  name = "pailecheng"
+  console.log(name);
 }
 function handleStop() {
   if (loading.value) {
