@@ -402,13 +402,12 @@ function handleEnter(event: KeyboardEvent) {
 }
 
 async function handLogin(){
-  const n = 'pailecheng'
-  const sex = '0'
-  const response = await fetchChatTests(n,sex) 
-  const {data} = await response;
-  const aaa = data.toString();
-  console.log(aaa.name);
-  name = aaa.name;
+  const n  ="pailecheng";
+  const sex = "男";
+  const response = await fetchChatTests(n,sex); 
+  const {data} = response;
+  console.log(data.vue);
+  name = data.vue;
 }
 function handleStop() {
   if (loading.value) {
