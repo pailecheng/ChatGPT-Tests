@@ -24,7 +24,7 @@ const name = 'pailecheng'
 const sex = '0'
 const bbb = await fetchChatTests(name,sex) 
 console.log(bbb);
-const abc = bbb
+const abc = name
 const route = useRoute()
 const dialog = useDialog()
 const ms = useMessage()
