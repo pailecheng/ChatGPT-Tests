@@ -16,16 +16,14 @@ import { useBasicLayout } from '@/hooks/useBasicLayout'
 import { useChatStore, usePromptStore } from '@/store'
 import { fetchChatAPIProcess } from '@/api'
 import { t } from '@/locales'
-//import { fetchChatTests } from '@/api'
+import { fetchChatTests } from '@/api'
 let controller = new AbortController()
 
 const openLongReply = import.meta.env.VITE_GLOB_OPEN_LONG_REPLY === 'true'
-/* interface TestsResponse {
-  auth: boolean
-  model: 'ChatGPTAPI' | 'ChatGPTUnofficialProxyAPI'
+interface TestsResponse {
+  data: string
 }
-const { data } = await fetchChatTests<TestsResponse>() */
-const abc = "测试！"
+const abc = await fetchChatTests<TestsResponse>() 
 const route = useRoute()
 const dialog = useDialog()
 const ms = useMessage()
