@@ -22,6 +22,7 @@ export function fetchChatConfig<T = any>() {
 export function fetchChatTests() {
   return post({
     url: '/tests',
+    data:'12345',
   })
 }
 
