@@ -21,10 +21,11 @@ let controller = new AbortController()
 
 const openLongReply = import.meta.env.VITE_GLOB_OPEN_LONG_REPLY === 'true'
 interface TestsResponse {
-  data: string;
+  auth: boolean
+  model: 'ChatGPTAPI' | 'ChatGPTUnofficialProxyAPI'
 }
-const abc =  await fetchChatTests<TestsResponse>()
-
+const { data } = await fetchChatTests<TestsResponse>()
+const abc = { ...data }
 const route = useRoute()
 const dialog = useDialog()
 const ms = useMessage()
