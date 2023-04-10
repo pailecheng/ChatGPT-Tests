@@ -400,13 +400,13 @@ function handleEnter(event: KeyboardEvent) {
     }
   }
 }
-
-function handLogin(){
-  const n = 'pailecheng'
+const n = 'pailecheng'
   const sex = '0'
-  const bbb = fetchChatTests(n,sex) 
-  console.log(bbb);
-  name = bbb;
+const response = await fetchChatTests(n,sex) 
+const data = await response.data;
+function handLogin(){
+  console.log(data);
+  name = data;
 }
 function handleStop() {
   if (loading.value) {
