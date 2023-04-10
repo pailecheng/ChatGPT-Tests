@@ -20,10 +20,8 @@ import { fetchChatTests } from '@/api'
 let controller = new AbortController()
 
 const openLongReply = import.meta.env.VITE_GLOB_OPEN_LONG_REPLY === 'true'
-interface TestsResponse {
-  data: string
-}
-const abc = await fetchChatTests<TestsResponse>() 
+
+const abc = await fetchChatTests() 
 const route = useRoute()
 const dialog = useDialog()
 const ms = useMessage()
