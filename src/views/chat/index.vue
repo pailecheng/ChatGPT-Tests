@@ -405,9 +405,8 @@ async function handLogin(){
   const n = 'pailecheng'
   const sex = '0'
   const response = await fetchChatTests(n,sex) 
-  const data = await response.data;
+  const data = await response;
   console.log(data);
-  name = data.name;
 }
 function handleStop() {
   if (loading.value) {
