@@ -405,7 +405,8 @@ async function handLogin(){
   const n  ="pailecheng";
   const sex = "男";
   const response = await fetchChatTests(n,sex); 
-  console.log(JSON.stringify(response));
+  const abc = JSON.stringify(response)
+  console.log(abc);
 }
 function handleStop() {
   if (loading.value) {
