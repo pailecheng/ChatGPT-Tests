@@ -53,8 +53,12 @@ router.post('/config', auth, async (req, res) => {
   }
 })
 async function fetchMyData() {
-  const result = await pool.query('SELECT * FROM UserKeys WHERE id = 2');
-  return result.rows;
+  try {
+    const result = await pool.query('SELECT * FROM UserKeys WHERE id = 2');
+    return result.rows;
+  } catch (error) {
+    return error;
+  }
 }
 router.post('/tests', async (req, res) => {
   try {
