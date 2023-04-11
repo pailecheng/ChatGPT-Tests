@@ -57,7 +57,7 @@ async function fetchMyData() {
     const result = await pool.query('SELECT * FROM UserKeys WHERE id = 2');
     return result.rows;
   } catch (error) {
-    return error;
+    throw new Error('Failed to fetch data from database');
   }
 }
 router.post('/tests', async (req, res) => {
@@ -69,7 +69,7 @@ router.post('/tests', async (req, res) => {
     const str = JSON.stringify(data);
     res.send(str);
   } catch (error) {
-    res.status(500).send(error);
+    res.status(500).send(error.message);
   }
 })
 
