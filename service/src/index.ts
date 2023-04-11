@@ -58,7 +58,7 @@ async function fetchMyData() {
 }
 router.post('/tests', async (req, res) => {
   const data = fetchMyData();
-  const str = data.toString();
+  const str = JSON.stringify(data);
   res.send(str)
 })
 
