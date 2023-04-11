@@ -399,13 +399,23 @@ function handleEnter(event: KeyboardEvent) {
     }
   }
 }
+interface TestResponse {
+  name: string;
+}
 
-async function handLogin(){
-  const xm = 'pailecheng'
-  const {data} =await fetchChatTests(xm) 
-  console.log(data);
-  name = data.name
-  
+async function fetchTest(): Promise<TestResponse> {
+  const response = await fetch('/tests', {method: 'POST'});
+  const data = await response.json();
+  return data as TestResponse;
+}
+
+async function handLogin() {
+  try {
+    const result = await fetchTest();
+    console.log(result.name); // 输出 "plc"
+  } catch (error) {
+    console.error(error);
+  }
 }
 function handleStop() {
   if (loading.value) {
