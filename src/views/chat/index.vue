@@ -27,7 +27,7 @@ const ms = useMessage()
 const chatStore = useChatStore()
 
 useCopyCode()
-var name =''
+let name: string
 const { isMobile } = useBasicLayout()
 const { addChat, updateChat, updateChatSome, getChatByUuidAndIndex } = useChat()
 const { scrollRef, scrollToBottom, scrollToBottomIfAtBottom } = useScroll()
@@ -401,8 +401,8 @@ function handleEnter(event: KeyboardEvent) {
 }
 
 async function handLogin(){
-  const queryParams = {name:'pailecheng'}
-  const {data} =await fetchChatTests(queryParams) 
+  const xm = 'pailecheng'
+  const {data} =await fetchChatTests(xm) 
   name = data.name
   console.log(name);
 }

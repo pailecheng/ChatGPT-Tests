@@ -20,10 +20,10 @@ export function fetchChatConfig<T = any>() {
   })
 }
  
-export function fetchChatTests(queryParams:{[name: string]: any}) {
+export function fetchChatTests(name: string) {
   return post({
     url: '/tests',
-    data:{queryParams}
+    data:{name}
   })
 }
 
