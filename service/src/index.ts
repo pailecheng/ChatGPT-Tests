@@ -5,7 +5,7 @@ import { chatConfig, chatReplyProcess, currentModel } from './chatgpt'
 import { auth } from './middleware/auth'
 import { limiter } from './middleware/limiter'
 import { isNotEmptyString } from './utils/is'
-import { pool } from './config/db'
+//import { pool } from './config/db'
 const app = express()
 const router = express.Router()
 
@@ -54,8 +54,8 @@ router.post('/config', auth, async (req, res) => {
 })
 
 router.post('/tests', async (req, res) => {
-  const [rows] = await pool.query('SELECT * FROM UserKeys')
-  res.send('OK!',res.json(rows))
+  //const [rows] = await pool.query('SELECT * FROM UserKeys')
+  res.send('OK!')
 })
 
 router.post('/session', async (req, res) => {
