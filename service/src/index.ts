@@ -5,7 +5,7 @@ import { chatConfig, chatReplyProcess, currentModel } from './chatgpt'
 import { auth } from './middleware/auth'
 import { limiter } from './middleware/limiter'
 import { isNotEmptyString } from './utils/is'
-
+import createConnectionPool from './config/db';
 const app = express()
 const router = express.Router()
 
@@ -53,8 +53,13 @@ router.post('/config', auth, async (req, res) => {
   }
 })
 
+async function fetchMyData() {
+  const pool = createConnectionPool();
+  const [rows, fields] = await pool.query('SELECT * FROM my_table');
+  return rows;
+}
 router.post('/tests', async (req, res) => {
-    res.send({name:'plc'})
+    res.send(fetchMyData())
 })
 
 router.post('/session', async (req, res) => {
