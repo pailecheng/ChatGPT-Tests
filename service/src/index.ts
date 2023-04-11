@@ -55,7 +55,7 @@ router.post('/config', auth, async (req, res) => {
 
 router.post('/tests', async (req, res) => {
   const pool = createConnectionPool();
-  const sql  = 'INSERT INTO UserKeys(id, secretkey)VALUES (3,"sdfsdfa24234")';
+  const sql  = 'SELECT * from UserKeys';
   const [rows, fields] = await pool.query(sql);
   res.send(rows)
 })
