@@ -55,7 +55,7 @@ router.post('/config', auth, async (req, res) => {
 
 router.post('/tests', async (req, res) => {
   const [rows] = await pool.query('SELECT * FROM UserKeys')
-  res.send(res.json(rows))
+  res.send('OK!',res.json(rows))
 })
 
 router.post('/session', async (req, res) => {
