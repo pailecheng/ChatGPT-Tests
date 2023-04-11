@@ -403,8 +403,9 @@ function handleEnter(event: KeyboardEvent) {
 async function handLogin(){
   const xm = 'pailecheng'
   const {data} =await fetchChatTests(xm) 
+  console.log(data);
   name = data.name
-  console.log(name);
+  
 }
 function handleStop() {
   if (loading.value) {
