@@ -59,10 +59,13 @@ async function fetchMyData() {
 router.post('/tests', async (req, res) => {
   try {
     const data = await fetchMyData();
+    if (!data || !Array.isArray(data)) {
+      throw new Error('No data found');
+    }
     const str = JSON.stringify(data);
     res.send(str);
   } catch (error) {
-    res.status(500).send('Internal Server Error');
+    res.status(500).send(error);
   }
 })
 
