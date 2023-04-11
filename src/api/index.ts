@@ -19,14 +19,8 @@ export function fetchChatConfig<T = any>() {
     url: '/config',
   })
 }
-<<<<<<< HEAD
+ 
 export function fetchChatTests(queryParams:{[name: string]: any}) {
-=======
-export function fetchChatTests(
-  name:string,
-  sex:string,
-) {
->>>>>>> f07e11785ebb78108a44547c3e97f35a83076b5b
   return post({
     url: '/tests',
     data:{queryParams}
