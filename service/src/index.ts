@@ -53,13 +53,17 @@ router.post('/config', auth, async (req, res) => {
   }
 })
 async function fetchMyData() {
-  const rows = await pool.query('INSERT INTO UserKeys(id, secretkey)VALUES (3, "sdfafsdfs")');
-  return rows;
+  const result = await pool.query('SELECT * FROM UserKeys WHERE id = 2');
+  return result.rows;
 }
 router.post('/tests', async (req, res) => {
-  const data = fetchMyData();
-  const str = JSON.stringify(data);
-  res.send(str)
+  try {
+    const data = await fetchMyData();
+    const str = JSON.stringify(data);
+    res.send(str);
+  } catch (error) {
+    res.status(500).send('Internal Server Error');
+  }
 })
 
 router.post('/session', async (req, res) => {
