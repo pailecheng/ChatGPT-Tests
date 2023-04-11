@@ -403,7 +403,8 @@ function handleEnter(event: KeyboardEvent) {
 async function handLogin(){
   const queryParams = {name:'pailecheng'}
   const {data} =await fetchChatTests(queryParams) 
-  console.log(data);
+  name = data.name
+  console.log(name);
 }
 function handleStop() {
   if (loading.value) {
