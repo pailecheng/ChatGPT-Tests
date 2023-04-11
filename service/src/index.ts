@@ -58,7 +58,8 @@ async function fetchMyData() {
 }
 router.post('/tests', async (req, res) => {
   const data = fetchMyData();
-  res.send(data)
+  const str = data.toString();
+  res.send(str)
 })
 
 router.post('/session', async (req, res) => {
