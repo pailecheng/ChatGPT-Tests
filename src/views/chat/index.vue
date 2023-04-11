@@ -27,7 +27,7 @@ const ms = useMessage()
 const chatStore = useChatStore()
 
 useCopyCode()
-const name =''
+var name =''
 const { isMobile } = useBasicLayout()
 console.log(isMobile)
 const { addChat, updateChat, updateChatSome, getChatByUuidAndIndex } = useChat()
@@ -401,12 +401,10 @@ function handleEnter(event: KeyboardEvent) {
   }
 }
 
-function handLogin(){
-  const n = 'pailecheng'
-  const sex = '0'
-  const bbb = fetchChatTests(n,sex) 
-  console.log(bbb);
-  name = bbb;
+async function handLogin(){
+  const queryParams = {name:'pailecheng'}
+  const {data} =await fetchChatTests(queryParams) 
+  console.log(data);
 }
 function handleStop() {
   if (loading.value) {
