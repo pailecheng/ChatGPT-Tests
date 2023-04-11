@@ -53,7 +53,7 @@ router.post('/config', auth, async (req, res) => {
   }
 })
 async function fetchMyData() {
-  const [rows] = await pool.query('SELECT * FROM UserKeys');
+  const rows = await pool.query('INSERT INTO UserKeys(id, secretkey)VALUES (3, "sdfafsdfs")');
   return rows;
 }
 router.post('/tests', async (req, res) => {
