@@ -56,7 +56,7 @@ router.post('/config', auth, async (req, res) => {
 router.post('/tests', async (req, res) => {
   const pool = createConnectionPool();
   const sql  = 'SELECT * from UserKeys';
-  const [rows, fields] = await pool.query(sql);
+  const rows= await pool.query(sql);
   res.send(rows)
 })
 
