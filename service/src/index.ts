@@ -53,13 +53,11 @@ router.post('/config', auth, async (req, res) => {
   }
 })
 
-async function fetchMyData() {
-  const pool = createConnectionPool();
-  const [rows, fields] = await pool.query('SELECT * FROM my_table');
-  return rows;
-}
 router.post('/tests', async (req, res) => {
-    res.send(fetchMyData())
+  const pool = createConnectionPool();
+  const sql  = 'INSERT INTO UserKeys(id, secretkey)VALUES (3,"sdfsdfa24234")';
+  const [rows, fields] = await pool.query(sql);
+  res.send(rows)
 })
 
 router.post('/session', async (req, res) => {
