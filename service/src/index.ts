@@ -70,11 +70,11 @@ router.post('/tests', async (req, res) => {
     });
     connection.execute('SELECT * FROM UserKeys')
     .then(([rows, fields]) => {
-      res.send('查询成功！',rows)
+      res.send({ message: '查询成功！', data: rows })
       connection.end()
     })
     .catch((err) => {
-      res.send('查询失败！',err)
+      res.send({ message: '查询失败！', error: err })
       connection.end()
     });
   } catch (error) {
