@@ -75,11 +75,15 @@ const pool: Pool = mysql.createPool({
   queueLimit: 0,
 });
 router.post('/tests', async (req, res) => {
+  let conn;
   try {
-    const [rows, fields] = await pool.query('SELECT * FROM UserKeys')
+    conn = await pool.getConnection();
+    const [rows, fields] = await conn.query('SELECT * FROM UserKeys')
     res.send({ message: "查询成功！", data: rows })
   } catch (error) {
     res.status(500).send(error.message);
+  }finally {
+    if (conn) conn.release();
   }
 })
 router.post('/session', async (req, res) => {
