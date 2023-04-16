@@ -5,7 +5,7 @@ import { chatConfig, chatReplyProcess, currentModel } from './chatgpt'
 import { auth } from './middleware/auth'
 import { limiter } from './middleware/limiter'
 import { isNotEmptyString } from './utils/is'
-import { pool } from './config/db'
+import {mysql} from 'mysql2/promise'
 const app = express()
 const router = express.Router()
 
@@ -52,22 +52,28 @@ router.post('/config', auth, async (req, res) => {
     res.send(error)
   }
 })
-async function fetchMyData() {
+/* async function fetchMyData() {
   try {
     const result = await pool.query('SELECT * FROM UserKeys WHERE id = 2');
     return result.rows;
   } catch (error) {
     throw new Error('Failed to fetch data from database');
   }
-}
+} */
+const connection = mysql.createConnection({
+  host: 'containers-us-west-102.railway.app',
+  user: 'root',
+  password: '9HAVsy8uphnRRVfw2gaS',
+  database: 'railway'
+});
 router.post('/tests', async (req, res) => {
   try {
-    const data = await fetchMyData();
-    if (!data || !Array.isArray(data)) {
-      throw new Error('No data found');
-    }
-    const str = JSON.stringify(data);
-    res.send(str);
+    connection.connect((err) => {
+      if (err) {
+        throw err;
+      }
+      res.send('Connected to MySQL database!');
+    });    
   } catch (error) {
     res.status(500).send(error.message);
   }
