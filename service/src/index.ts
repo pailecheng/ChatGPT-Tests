@@ -60,15 +60,6 @@ router.post('/config', auth, async (req, res) => {
     res.send(error)
   }
 })
-/* async function fetchMyData() {
-  try {
-    const result = await pool.query('SELECT * FROM UserKeys WHERE id = 2');
-    return result.rows;
-  } catch (error) {
-    throw new Error('Failed to fetch data from database');
-  }
-} */
-// 创建一个 MySQL 连接池
 const pool: Pool = mysql.createPool({
   url:MYSQL_URL,
   host: MYSQL_HOST,
