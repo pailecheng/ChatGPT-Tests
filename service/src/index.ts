@@ -60,20 +60,28 @@ router.post('/config', auth, async (req, res) => {
     throw new Error('Failed to fetch data from database');
   }
 } */
-const connection = mysql.createConnection({
-  host: 'containers-us-west-102.railway.app',
-  user: 'root',
-  password: '9HAVsy8uphnRRVfw2gaS',
-  database: 'railway'
-});
 router.post('/tests', async (req, res) => {
   try {
-    connection.connect((err) => {
-      if (err) {
-        throw err;
-      }
-      res.send('Connected to MySQL database!');
-    });    
+    const connection = await mysql.createConnection({
+      host: 'containers-us-west-102.railway.app',
+      user: 'root',
+      password: '9HAVsy8uphnRRVfw2gaS',
+      database: 'railway'
+    });
+    connection.execute('SELECT * FROM UserKeys')
+    .then(([rows, fields]) => {
+      res.send(rows)
+    })
+    .catch((err) => {
+      res.send(err)
+    });
+    connection.end()
+    .then(() => {
+      res.send('Connection closed.')
+    })
+    .catch((err) => {
+      res.send(err)
+    }) 
   } catch (error) {
     res.status(500).send(error.message);
   }
