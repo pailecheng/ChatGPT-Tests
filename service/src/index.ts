@@ -62,13 +62,13 @@ router.post('/config', auth, async (req, res) => {
 } */
 router.post('/tests', async (req, res) => {
   try {
-    const connection = await mysql.createConnection({
+    const connection = mysql.createConnection({
       host: 'containers-us-west-102.railway.app',
       user: 'root',
       password: '9HAVsy8uphnRRVfw2gaS',
       database: 'railway'
     });
-    const [rows, fields] =connection.execute('SELECT * FROM UserKeys')
+    connection.execute('SELECT * FROM UserKeys')
     .then(([rows, fields]) => {
       res.send('查询成功！',rows)
     })
