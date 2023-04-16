@@ -5,10 +5,14 @@ import { chatConfig, chatReplyProcess, currentModel } from './chatgpt'
 import { auth } from './middleware/auth'
 import { limiter } from './middleware/limiter'
 import { isNotEmptyString } from './utils/is'
-import mysql from 'mysql2/promise'
+import mysql, { Pool } from 'mysql2/promise';
 const app = express()
 const router = express.Router()
-
+// 从环境变量中获取数据库连接的参数
+const MYSQL_HOST = process.env.MYSQLHOST || 'containers-us-west-102.railway.app';
+const MYSQL_USER = process.env.MYSQLUSER || 'root';
+const MYSQL_PASSWORD = process.env.MYSQLPASSWORD || '9HAVsy8uphnRRVfw2gaS';
+const MYSQL_DATABASE = process.env.MYSQLDATABASE || 'railway';
 app.use(express.static('public'))
 app.use(express.json())
 
@@ -60,15 +64,16 @@ router.post('/config', auth, async (req, res) => {
     throw new Error('Failed to fetch data from database');
   }
 } */
-const pool = mysql.createPool({
-  host: process.env.MYSQLHOST || 'containers-us-west-102.railway.app',
-  user: process.env.MYSQLUSER || 'root',
-  password: process.env.MYSQLPASSWORD || '9HAVsy8uphnRRVfw2gaS',
-  database: process.env.MYSQLDATABASE || 'railway',
+// 创建一个 MySQL 连接池
+const pool: Pool = mysql.createPool({
+  host: MYSQL_HOST,
+  user: MYSQL_USER,
+  password: MYSQL_PASSWORD,
+  database: MYSQL_DATABASE,
   waitForConnections: true,
   connectionLimit: 10,
-  queueLimit: 0
-})
+  queueLimit: 0,
+});
 router.post('/tests', async (req, res) => {
   try {
     const [rows, fields] = await pool.query('SELECT * FROM UserKeys')
