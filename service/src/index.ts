@@ -61,17 +61,17 @@ router.post('/config', auth, async (req, res) => {
   }
 } */
 const pool = mysql.createPool({
-  host: 'containers-us-west-102.railway.app',
-  user: 'root',
-  password: '9HAVsy8uphnRRVfw2gaS',
-  database: 'railway',
+  host: process.env.MYSQLHOST || 'containers-us-west-102.railway.app',
+  user: process.env.MYSQLUSER || 'root',
+  password: process.env.MYSQLPASSWORD || '9HAVsy8uphnRRVfw2gaS',
+  database: process.env.MYSQLDATABASE || 'railway',
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0
 })
 router.post('/tests', async (req, res) => {
   try {
-    const [rows, fields] = await pool.query('SELECT * FROM UserKeys')
+    const [rows, fields] = pool.query('SELECT * FROM UserKeys')
     res.send({ message: "查询成功！", data: rows })
   } catch (error) {
     res.status(500).send(error.message);
