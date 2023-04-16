@@ -68,13 +68,8 @@ router.post('/tests', async (req, res) => {
       password: '9HAVsy8uphnRRVfw2gaS',
       database: 'railway'
     });
-    connection.execute('SELECT * FROM UserKeys')
-    .then(([rows, fields]) => {
-      res.send(rows)
-    })
-    .catch((err) => {
-      res.send(err)
-    });
+    const rows =connection.execute('SELECT * FROM UserKeys')
+    res.send(rows)
     connection.end()
     .then(() => {
       res.send('Connection closed.')
