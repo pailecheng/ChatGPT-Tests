@@ -71,17 +71,12 @@ router.post('/tests', async (req, res) => {
     connection.execute('SELECT * FROM UserKeys')
     .then(([rows, fields]) => {
       res.send('查询成功！',rows)
+      connection.end()
     })
     .catch((err) => {
       res.send('查询失败！',err)
+      connection.end()
     });
-    connection.end()
-    .then(() => {
-      res.send('Connection closed.')
-    })
-    .catch((err) => {
-      res.send('关闭连接失败！',err)
-    }) 
   } catch (error) {
     res.status(500).send(error.message);
   }
