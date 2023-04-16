@@ -71,7 +71,7 @@ const pool = mysql.createPool({
 })
 router.post('/tests', async (req, res) => {
   try {
-    const [rows, fields] = pool.query('SELECT * FROM UserKeys')
+    const [rows, fields] = await pool.query('SELECT * FROM UserKeys')
     res.send({ message: "查询成功！", data: rows })
   } catch (error) {
     res.status(500).send(error.message);
