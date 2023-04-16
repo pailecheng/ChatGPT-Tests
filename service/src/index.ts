@@ -68,20 +68,15 @@ router.post('/tests', async (req, res) => {
       password: '9HAVsy8uphnRRVfw2gaS',
       database: 'railway'
     });
-    connection.execute('SELECT * FROM UserKeys')
-    .then(([rows, fields]) => {
+    connection.query('SELECT * FROM UserKeys', (err, rows, fields) => {
+      if (err) throw err;
       res.send({ message: "查询成功！", data: rows })
-      connection.end()
-    })
-    .catch((err) => {
-      res.send({ message: "查询失败！", error: err })
       connection.end()
     });
   } catch (error) {
     res.status(500).send(error.message);
   }
 })
-
 router.post('/session', async (req, res) => {
   try {
     const AUTH_SECRET_KEY = process.env.AUTH_SECRET_KEY
