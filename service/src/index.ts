@@ -5,7 +5,7 @@ import { chatConfig, chatReplyProcess, currentModel } from './chatgpt'
 import { auth } from './middleware/auth'
 import { limiter } from './middleware/limiter'
 import { isNotEmptyString } from './utils/is'
-import pool from './db.js'; // 引入数据库连接配置
+import pool from './config/db'; // 引入数据库连接配置
 const app = express()
 const router = express.Router()
 
