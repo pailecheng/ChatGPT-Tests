@@ -12,7 +12,20 @@ const ms = useMessage()
 const userInfo = computed(() => userStore.userInfo)
 
 const avatar = ref(userInfo.value.avatar ?? '')
-console.log(avatar);
+
+const languageOptions: { label: string; key: string; value: string }[] = [
+  { label: 'GPT-3.5-turbo', key: 'gpt-3.5', value: 'gpt-3.5' },
+  { label: 'GPT-4', key: 'gpt-4', value: 'gpt-4' },
+]
+
+const language = computed({
+  get() {
+    return ''
+  },
+  set(value: string) {
+    return value
+  },
+})
 
 function updateUserInfo(options: Partial<UserInfo>) {
   userStore.updateUserInfo(options)
@@ -26,6 +39,17 @@ function updateUserInfo(options: Partial<UserInfo>) {
 <template>
   <div class="p-4 space-y-5 min-h-[200px]">
     <div class="space-y-6">
+      <div class="flex items-center space-x-4">
+        <span class="flex-shrink-0 w-[100px]">模型</span>
+        <div class="flex flex-wrap items-center gap-4">
+          <NSelect
+            style="width: 140px"
+            :value="language"
+            :options="languageOptions"
+            @update-value=""
+          />
+        </div>
+      </div>
       <div class="flex items-center space-x-4">
         <span class="flex-shrink-0 w-[100px]">秘钥</span>
         <div class="flex-1">
