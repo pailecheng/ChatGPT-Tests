@@ -36,7 +36,7 @@ const show = computed({
         <NTabPane name="Configuration" tab="Configuration">
           <template #tab>
             <SvgIcon class="text-lg" icon="ri:file-user-line" />
-            <span class="ml-2">{{ $t('setting.Configuration') }}</span>
+            <span class="ml-2">配置</span>
           </template>
           <div class="min-h-[100px]">
             <Configuration />
