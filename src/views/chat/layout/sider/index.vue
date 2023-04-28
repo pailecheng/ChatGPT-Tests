@@ -80,7 +80,7 @@ watch(
           <List />
         </div>
         <div class="p-4">
-          <NButton block @click="show = true"><!--隐藏功能 block @click="show = true"-->
+          <NButton block @click="handleUpdateCollapsed"><!--隐藏功能 block @click="show = true"-->
             待定功能...
           </NButton>
         </div>
@@ -89,7 +89,7 @@ watch(
     </div>
   </NLayoutSider>
   <template v-if="isMobile">
-    <div v-show="!collapsed" class="fixed inset-0 z-40 bg-black/40" @click="handleUpdateCollapsed" />
+    <div v-show="!collapsed" class="fixed inset-0 z-40 bg-black/40"  />
   </template>
   <PromptStore v-model:visible="show" />
 </template>
