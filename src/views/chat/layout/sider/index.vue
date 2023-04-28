@@ -82,7 +82,7 @@ watch(
         </div>
         <div class="p-4">
           <NButton block @click="show = true"><!--隐藏功能 block @click="show = true"-->
-            待定功能...
+            设置
           </NButton>          
         </div>
       </main>
