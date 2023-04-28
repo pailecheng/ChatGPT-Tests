@@ -12,7 +12,7 @@ const ms = useMessage()
 const userInfo = computed(() => userStore.userInfo)
 
 const avatar = ref(userInfo.value.avatar ?? '')
-
+console.log(avatar);
 
 function updateUserInfo(options: Partial<UserInfo>) {
   userStore.updateUserInfo(options)
