@@ -31,9 +31,7 @@ function updateUserInfo(options: Partial<UserInfo>) {
         <div class="flex-1">
           <NInput v-model:value="avatar" placeholder="" />
         </div>
-        <NButton size="tiny" text type="primary" @click="updateUserInfo({ avatar })">
-          {{ $t('common.save') }}
-        </NButton>
+        <NButton size="tiny" text type="primary" @click="updateUserInfo({ avatar })">保存</NButton>
       </div>
     </div>
   </div>
