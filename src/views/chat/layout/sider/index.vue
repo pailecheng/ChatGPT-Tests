@@ -8,7 +8,7 @@ import Footer from './Footer.vue'
 import { useAppStore, useChatStore } from '@/store'
 import { useBasicLayout } from '@/hooks/useBasicLayout'
 //import { PromptStore } from '@/components/common'
-const Setting = defineAsyncComponent(() => import('@/components/common/Setting/index.vue'))
+const Setting = defineAsyncComponent(() => import('@/components/common/Setting/config.vue'))
 const appStore = useAppStore()
 const chatStore = useChatStore()
 
