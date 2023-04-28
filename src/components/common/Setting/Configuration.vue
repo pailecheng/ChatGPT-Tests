@@ -29,7 +29,7 @@ function updateUserInfo(options: Partial<UserInfo>) {
       <div class="flex items-center space-x-4">
         <span class="flex-shrink-0 w-[100px]">秘钥</span>
         <div class="flex-1">
-          <NInput v-model:value="" placeholder="" />
+          <NInput v-model:value="avatar" placeholder="" />
         </div>
         <NButton size="tiny" text type="primary" @click="updateUserInfo({ avatar })">
           {{ $t('common.save') }}
