@@ -35,6 +35,7 @@ function updateUserInfo(options: Partial<UserInfo>) {
           <NInput v-model:value="avatar" placeholder="" />
         </div>
         <NButton size="tiny" text type="primary" @click="updateUserInfo({ avatar })">
+          {{ $t('common.save') }}
         </NButton>
       </div>
       <div class="flex items-center space-x-4">
@@ -43,6 +44,7 @@ function updateUserInfo(options: Partial<UserInfo>) {
           <NInput v-model:value="name" placeholder="" />
         </div>
         <NButton size="tiny" text type="primary" @click="updateUserInfo({ name })">
+          {{ $t('common.save') }}
         </NButton>
       </div>
     </div>
