@@ -1,32 +1,29 @@
 <script lang="ts" setup>
-import { computed, ref } from 'vue'
-import { NButton, NInput,NSelect, useMessage } from 'naive-ui'
-import { useUserStore } from '@/store'
-import type { UserInfo } from '@/store/modules/user/helper'
-import { t } from '@/locales'
+import { computed, ref } from 'vue';
+import { NButton, NInput,NSelect, useMessage } from 'naive-ui';
+import { useUserStore } from '@/store';
+import type { UserInfo } from '@/store/modules/user/helper';
+import { t } from '@/locales';
 
-const userStore = useUserStore()
+const userStore = useUserStore();
 
-const ms = useMessage()
+const ms = useMessage();
 
-const userInfo = computed(() => userStore.userInfo)
+const userInfo = computed(() => userStore.userInfo);
 
-const avatar = ref(userInfo.value.avatar ?? '')
-
-const selected = { label: 'gpt-4', key: 'gpt-4', value: 'gpt-4' };
+const selected = ref({ label: 'gpt-3.5-turbo', key: 'gpt-3.5', value: 'gpt-3.5-turbo' });
 
 const options = [
   { label: 'gpt-3.5-turbo', key: 'gpt-3.5', value: 'gpt-3.5-turbo' },
   { label: 'gpt-4', key: 'gpt-4', value: 'gpt-4' },
 ];
 
+const avatar = ref(userInfo.value.avatar ?? '');
+
 function updateUserInfo(options: Partial<UserInfo>) {
-  userStore.updateUserInfo(options)
-  ms.success(t('common.success'))
+  userStore.updateUserInfo(options);
+  ms.success(t('common.success'));
 }
-
-
-
 </script>
 
 <template>
