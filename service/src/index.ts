@@ -56,8 +56,8 @@ router.post('/tests', async (req, res) => {
   let conn;
   try {
     conn = await pool.getConnection();
-    const [rows, fields] = await conn.query('INSERT INTO UserKeys (id, secretkey) VALUES (?, ?)', ['8', 'bbbbb'])
-    res.send({ message: "查询成功！", data: rows })
+    const data = await conn.query('SELECT * FROM UserKeys WHERE ID = 1')
+    res.send({ message: "查询成功！", data: data })
   } catch (error) {
     res.status(500).send(error.message);
   }finally {
