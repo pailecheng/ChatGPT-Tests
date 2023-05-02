@@ -20,7 +20,7 @@ const languageOptions: { label: string; key: string; value: string }[] = [
 
 const language = computed({
   get() {
-    return ''
+    return 'GPT-3.5-turbo'
   },
   set(value: string) {
     return value
