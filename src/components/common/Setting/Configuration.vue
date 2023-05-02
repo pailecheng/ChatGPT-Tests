@@ -27,6 +27,7 @@ const avatar = ref(userInfo.value.avatar ?? '');
         <div class="flex flex-wrap items-center gap-4">
           <NSelect
             style="width: 140px"
+            value="gpt-3.5-turbo"
             v-model="selected"
             :options="options"            
           />
