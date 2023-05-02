@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { computed, ref } from 'vue'
-import { NButton, NInput, useMessage } from 'naive-ui'
+import { NButton, NInput,NSelect, useMessage } from 'naive-ui'
 import { useUserStore } from '@/store'
 import type { UserInfo } from '@/store/modules/user/helper'
 import { t } from '@/locales'
