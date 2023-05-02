@@ -37,7 +37,7 @@ function updateUserInfo(options: Partial<UserInfo>) {
         <div class="flex flex-wrap items-center gap-4">
           <NSelect
             style="width: 140px"
-            :v-model="selected.value"
+            v-model="selected.value"
             :options="options"            
           />
         </div>
