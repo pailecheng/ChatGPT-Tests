@@ -13,19 +13,12 @@ const userInfo = computed(() => userStore.userInfo)
 
 const avatar = ref(userInfo.value.avatar ?? '')
 
-const languageOptions: { label: string; key: string; value: string }[] = [
+const selected = '';
+
+const options = [
   { label: 'GPT-3.5-turbo', key: 'gpt-3.5', value: 'gpt-3.5' },
   { label: 'GPT-4', key: 'gpt-4', value: 'gpt-4' },
 ]
-
-const language = computed({
-  get() {
-    return 'GPT-3.5-turbo'
-  },
-  set(value: string) {
-    return value
-  },
-})
 
 function updateUserInfo(options: Partial<UserInfo>) {
   userStore.updateUserInfo(options)
@@ -44,9 +37,8 @@ function updateUserInfo(options: Partial<UserInfo>) {
         <div class="flex flex-wrap items-center gap-4">
           <NSelect
             style="width: 140px"
-            :value="language"
-            :options="languageOptions"
-            @update-value=""
+            :v-model="selected"
+            :options="options"
           />
         </div>
       </div>
