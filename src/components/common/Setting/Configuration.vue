@@ -13,10 +13,10 @@ const userInfo = computed(() => userStore.userInfo)
 
 const avatar = ref(userInfo.value.avatar ?? '')
 
-const selected =  { label: 'GPT-3.5-turbo', key: 'gpt-3.5', value: 'gpt-3.5' };
+const selected =  { label: 'GPT-3.5-turbo', key: 'gpt-3.5', value: 'GPT-3.5-turbo' };
 
 const options = [
-  { label: 'GPT-3.5-turbo', key: 'gpt-3.5', value: 'gpt-3.5' },
+  { label: 'GPT-3.5-turbo', key: 'gpt-3.5', value: 'GPT-3.5-turbo' },
   { label: 'GPT-4', key: 'gpt-4', value: 'gpt-4' },
 ]
 
@@ -37,7 +37,7 @@ function updateUserInfo(options: Partial<UserInfo>) {
         <div class="flex flex-wrap items-center gap-4">
           <NSelect
             style="width: 140px"
-            :v-model="selected"
+            :v-model="selected.value"
             :options="options"            
           />
         </div>
