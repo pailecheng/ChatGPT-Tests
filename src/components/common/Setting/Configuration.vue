@@ -1,13 +1,10 @@
 <script lang="ts" setup>
 import { computed, ref } from 'vue';
-import { NButton, NInput,NSelect, useMessage } from 'naive-ui';
+import { NButton, NInput,NSelect } from 'naive-ui';
 import { useUserStore } from '@/store';
-import type { UserInfo } from '@/store/modules/user/helper';
-import { t } from '@/locales';
 
 const userStore = useUserStore();
 
-const ms = useMessage();
 
 const userInfo = computed(() => userStore.userInfo);
 
@@ -20,10 +17,6 @@ const options = [
 
 const avatar = ref(userInfo.value.avatar ?? '');
 
-function updateUserInfo(options: Partial<UserInfo>) {
-  userStore.updateUserInfo(options);
-  ms.success(t('common.success'));
-}
 </script>
 
 <template>
@@ -44,7 +37,7 @@ function updateUserInfo(options: Partial<UserInfo>) {
         <div class="flex-1">
           <NInput v-model:value="avatar" placeholder="" />
         </div>
-        <NButton size="tiny" text type="primary" @click="updateUserInfo({ avatar })">保存</NButton>
+        <NButton size="tiny" text type="primary">保存</NButton>
       </div>
     </div>
   </div>
