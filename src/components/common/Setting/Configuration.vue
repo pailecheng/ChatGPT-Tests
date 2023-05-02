@@ -39,6 +39,7 @@ function updateUserInfo(options: Partial<UserInfo>) {
             style="width: 140px"
             :v-model="selected"
             :options="options"
+            :value="GPT-3.5-turbo"
           />
         </div>
       </div>
