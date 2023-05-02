@@ -13,7 +13,7 @@ const userInfo = computed(() => userStore.userInfo)
 
 const avatar = ref(userInfo.value.avatar ?? '')
 
-const selected = { label: 'gpt-3.5-turbo', key: 'gpt-3.5', value: 'gpt-3.5-turbo' };
+const selected = { label: 'gpt-4', key: 'gpt-4', value: 'gpt-4' };
 
 const options = [
   { label: 'gpt-3.5-turbo', key: 'gpt-3.5', value: 'gpt-3.5-turbo' },
