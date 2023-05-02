@@ -70,8 +70,9 @@ router.post('/session', async (req, res) => {
     conn = await pool.getConnection();
     const data = await conn.query('SELECT * FROM UserKeys WHERE ID = 1')
     const AUTH_SECRET_KEY = process.env.AUTH_SECRET_KEY
+    const keys = process.env.AUTH_SECRET_KEY
     const hasAuth = isNotEmptyString(AUTH_SECRET_KEY)
-    res.send({ status: 'Success', message: '', data: { key:'111112',auth: hasAuth, model: currentModel(),data:data } })
+    res.send({ status: 'Success', message: '', data: { key:keys,auth: hasAuth, model: currentModel(),data:data } })
   }
   catch (error) {
     res.send({ status: 'Fail', message: error.message, data: null })
