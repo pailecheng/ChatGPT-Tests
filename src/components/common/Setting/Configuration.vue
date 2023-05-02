@@ -37,9 +37,9 @@ function updateUserInfo(options: Partial<UserInfo>) {
         <div class="flex flex-wrap items-center gap-4">
           <NSelect
             style="width: 140px"
+            value="GPT-3.5-turbo"
             :v-model="selected"
-            :options="options"
-            :value="GPT-3.5-turbo"
+            :options="options"            
           />
         </div>
       </div>
