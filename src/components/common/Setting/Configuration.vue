@@ -8,7 +8,7 @@ const userStore = useUserStore();
 
 const userInfo = computed(() => userStore.userInfo);
 
-const selected = ref({ label: 'gpt-3.5-turbo', key: 'gpt-3.5', value: 'gpt-3.5-turbo' });
+const selected = ref(options[0]);
 
 const options = [
   { label: 'gpt-3.5-turbo', key: 'gpt-3.5', value: 'gpt-3.5-turbo' },
@@ -27,7 +27,7 @@ const avatar = ref(userInfo.value.avatar ?? '');
         <div class="flex flex-wrap items-center gap-4">
           <NSelect
             style="width: 140px"
-            value="gpt-3.5-turbo"
+            :value="selected"
             v-model="selected"
             :options="options"            
           />
