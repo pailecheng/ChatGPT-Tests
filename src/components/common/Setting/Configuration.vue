@@ -1,43 +1,3 @@
-<template>
-  <div class="p-4 space-y-5 min-h-[200px]">
-    <div class="space-y-6">
-      <div class="flex items-center space-x-4">
-        <n-space vertical>
-          <n-radio-group v-model:value="locale">
-            <n-space>
-              <n-radio label="语言1" value="语言1" />
-              <n-radio label="语言2" value="语言2" />
-            </n-space>
-          </n-radio-group>
-          <n-form :model="model" :rules="rules">
-            <n-form-item label="输入点什么去掉 error" path="input">
-              <NInput v-model="model.input" />
-            </n-form-item>
-          </n-form>
-        </n-space>
-      </div>
-      <div class="flex items-center space-x-4">
-        <span class="flex-shrink-0 w-[100px]">模型</span>
-        <div class="flex flex-wrap items-center gap-4">
-          <NSelect
-            style="width: 140px"
-            v-model="selected"
-            :options="options"            
-          />
-
-        </div>
-      </div>
-      <div class="flex items-center space-x-4">
-        <span class="flex-shrink-0 w-[100px]">秘钥</span>
-        <div class="flex-1">
-          <NInput v-model="avatar" placeholder="" />
-        </div>
-        <NButton size="tiny" type="primary">保存</NButton>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script lang="ts" setup>
 import { ref } from 'vue';
 import { FormRules, NButton, NInput, NSelect } from 'naive-ui';
@@ -61,3 +21,43 @@ const model = ref({
   input: ''
 });
 </script>
+<template>
+  <n-space vertical>
+          <n-radio-group v-model:value="locale">
+            <n-space>
+              <n-radio label="语言1" value="语言1" />
+              <n-radio label="语言2" value="语言2" />
+            </n-space>
+          </n-radio-group>
+          <n-form :model="model" :rules="rules">
+            <n-form-item label="输入点什么去掉 error" path="input">
+              <NInput v-model="model.input" />
+            </n-form-item>
+          </n-form>
+        </n-space>
+  <div class="p-4 space-y-5 min-h-[200px]">
+    <div class="space-y-6">
+      <div class="flex items-center space-x-4">
+        
+      </div>
+      <div class="flex items-center space-x-4">
+        <span class="flex-shrink-0 w-[100px]">模型</span>
+        <div class="flex flex-wrap items-center gap-4">
+          <NSelect
+            style="width: 140px"
+            v-model="selected"
+            :options="options"            
+          />
+
+        </div>
+      </div>
+      <div class="flex items-center space-x-4">
+        <span class="flex-shrink-0 w-[100px]">秘钥</span>
+        <div class="flex-1">
+          <NInput v-model="avatar" placeholder="" />
+        </div>
+        <NButton size="tiny" type="primary">保存</NButton>
+      </div>
+    </div>
+  </div>
+</template>
