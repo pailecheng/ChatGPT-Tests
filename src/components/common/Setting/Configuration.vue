@@ -51,8 +51,8 @@ const songs = [
   <n-space vertical>
           <n-radio-group v-model:value="locale">
             <n-space>
-              <n-radio label="语言1" value="语言1" />
-              <n-radio label="语言2" value="语言2" />
+              <n-radio :label="语言1" value="语言1" />
+              <n-radio :label="语言2" value="语言2" />
             </n-space>
           </n-radio-group>
           <n-form :model="model" :rules="rules">
