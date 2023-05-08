@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { FormRules, NButton, NInput, NSelect } from 'naive-ui';
+import { FormRules, NForm,NItem,NSpace,NButton,NGroup,NRadio, NInput, NSelect } from 'naive-ui';
 
 const options = [
   { label: 'gpt-3.5-turbo', key: 'gpt-3.5', value: 'gpt-3.5-turbo' },
@@ -20,54 +20,21 @@ const rules: FormRules = {
 const model = ref({
   input: ''
 });
-const value = ref(null)
-const songs = [
-        {
-          value: "Rock'n'Roll Star",
-          label: "Rock'n'Roll Star"
-        },
-        {
-          value: 'Shakermaker',
-          label: 'Shakermaker'
-        },
-        {
-          value: 'Live Forever',
-          label: 'Live Forever'
-        },
-        {
-          value: 'Up in the Sky',
-          label: 'Up in the Sky'
-        },
-        {
-          value: '...',
-          label: '...'
-        }
-      ].map((s) => {
-        s.value = s.value.toLowerCase()
-        return s
-      })
 </script>
 <template>
-  <n-space vertical>
-          <n-radio-group v-model:value="locale">
-            <n-space>
-              <n-radio :label="语言1" value="语言1" />
-              <n-radio :label="语言2" value="语言2" />
-            </n-space>
-          </n-radio-group>
-          <n-form :model="model" :rules="rules">
-            <n-form-item label="输入点什么去掉 error" path="input">
+  <NSpace>
+          <NGroup v-model:value="locale">
+            <NSpace>
+              <NRadio label="语言1" value="语言1" />
+              <NRadio label="语言2" value="语言2" />
+            </NSpace>
+          </NGroup>
+          <NForm :model="model" :rules="rules">
+            <NItem label="输入点什么去掉 error" path="input">
               <NInput v-model="model.input" />
-            </n-form-item>
-          </n-form>
-        </n-space>
-  <n-radio-group v-model:value="value" name="radiogroup">
-    <n-space>
-      <n-radio v-for="song in songs" :key="song.value" :value="song.value">
-        {{ song.label }}
-      </n-radio>
-    </n-space>
-  </n-radio-group>
+            </NItem>
+          </NForm>
+        </NSpace>
   <div class="p-4 space-y-5 min-h-[200px]">
     <div class="space-y-6">
       <div class="flex items-center space-x-4">
