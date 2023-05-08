@@ -1,19 +1,13 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { FormRules, NButton,NRadioGroup,NRadio, NInput } from 'naive-ui';
+import { NButton,NRadioGroup,NRadio, NInput } from 'naive-ui';
 
 const avatar = ref('abcdaesd');
 const locale = ref('gpt-3.5')
-const rules: FormRules = {
-  input: [{ required: true, trigger: ['focus', 'input'], message: () => {
-    return locale.value === 'gpt-3.5'
-      ? '抽离透传归因分析作为抓手为产品赋能'
-      : '方法论是组合拳达到平台化标准';
-  } }]
-};
-const model = ref({
-  input: ''
-});
+const checkedValue = ref<string | null>(null)
+function handleChange(e: Event): void {
+  checkedValue.value = (e.target as HTMLInputElement).value;
+}
 </script>
 <template>
   <div class="p-4 space-y-5 min-h-[200px]">
@@ -27,15 +21,10 @@ const model = ref({
           <n-space>
             <NRadioGroup v-model:value="locale">
               <n-space>
-                <NRadio label="GPT-3.5-turbo" value="gpt-3.5" />
-                <NRadio label="GPT-4" value="gpt-4" />
+                <NRadio :checked="checkedValue === 'gpt-3.5'" @change="handleChange" label="GPT-3.5-turbo" value="gpt-3.5" />
+                <NRadio :checked="checkedValue === 'gpt-4'" @change="handleChange" label="GPT-4" value="gpt-4" />
               </n-space>
             </NRadioGroup>
-            <n-form :model="model" :rules="rules">
-              <n-form-item label="输入点什么去掉 error" path="input">
-                <NInput v-model="model.input" />
-              </n-form-item>
-            </n-form>
           </n-space>
 
         </div>
