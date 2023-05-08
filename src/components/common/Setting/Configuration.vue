@@ -20,6 +20,32 @@ const rules: FormRules = {
 const model = ref({
   input: ''
 });
+const value = ref(null)
+const songs = [
+        {
+          value: "Rock'n'Roll Star",
+          label: "Rock'n'Roll Star"
+        },
+        {
+          value: 'Shakermaker',
+          label: 'Shakermaker'
+        },
+        {
+          value: 'Live Forever',
+          label: 'Live Forever'
+        },
+        {
+          value: 'Up in the Sky',
+          label: 'Up in the Sky'
+        },
+        {
+          value: '...',
+          label: '...'
+        }
+      ].map((s) => {
+        s.value = s.value.toLowerCase()
+        return s
+      })
 </script>
 <template>
   <n-space vertical>
@@ -35,6 +61,13 @@ const model = ref({
             </n-form-item>
           </n-form>
         </n-space>
+  <n-radio-group v-model:value="value" name="radiogroup">
+    <n-space>
+      <n-radio v-for="song in songs" :key="song.value" :value="song.value">
+        {{ song.label }}
+      </n-radio>
+    </n-space>
+  </n-radio-group>
   <div class="p-4 space-y-5 min-h-[200px]">
     <div class="space-y-6">
       <div class="flex items-center space-x-4">
