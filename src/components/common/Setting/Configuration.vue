@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { FormRules,NButton, NInput,NSelect } from 'naive-ui';
+import { FormRules, NButton, NInput, NSelect } from 'naive-ui';
 
 const options = [
   { label: 'gpt-3.5-turbo', key: 'gpt-3.5', value: 'gpt-3.5-turbo' },
@@ -8,22 +8,18 @@ const options = [
 ];
 const selected = ref({ label: 'gpt-3.5-turbo', key: 'gpt-3.5', value: 'gpt-3.5-turbo' });
 
-const avatar = ref('abcdaesd' ?? '');
+const avatar = ref('abcdaesd');
 const locale = ref('语言1')
-const rules: FormRules = ref(
-  NInput,{
-        required: true,
-        trigger: ['focus', 'input'],
-        renderMessage: () => {
-          return locale.value === '语言1'
-            ? '抽离透传归因分析作为抓手为产品赋能'
-            : '方法论是组合拳达到平台化标准'
-        }
-  }
-)
+const rules: FormRules = ref({
+  input: [{ required: true, trigger: ['focus', 'input'], message: () => {
+    return locale.value === '语言1'
+      ? '抽离透传归因分析作为抓手为产品赋能'
+      : '方法论是组合拳达到平台化标准';
+  } }]
+});
 const model = ref({
-      input: ''
-})
+  input: ''
+});
 </script>
 
 <template>
@@ -39,7 +35,7 @@ const model = ref({
           </n-radio-group>
           <n-form :model="model" :rules="rules">
             <n-form-item label="输入点什么去掉 error" path="input">
-              <NInput v-model:value="model.input" />
+              <NInput v-model="model.input" />
             </n-form-item>
           </n-form>
         </n-space>
@@ -49,7 +45,7 @@ const model = ref({
         <div class="flex flex-wrap items-center gap-4">
           <NSelect
             style="width: 140px"
-            v-model="selected"
+            v-model:value="selected"
             :options="options"            
           />
         </div>
@@ -57,9 +53,9 @@ const model = ref({
       <div class="flex items-center space-x-4">
         <span class="flex-shrink-0 w-[100px]">秘钥</span>
         <div class="flex-1">
-          <NInput v-model:value="avatar" placeholder="" />
+          <NInput v-model="avatar" placeholder="" />
         </div>
-        <NButton size="tiny" text type="primary">保存</NButton>
+        <NButton size="tiny" type="primary">保存</NButton>
       </div>
     </div>
   </div>
