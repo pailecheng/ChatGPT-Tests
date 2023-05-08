@@ -1,8 +1,8 @@
-<script lang="ts">
+<script setup lang="ts">
 import { defineComponent, ref } from 'vue'
 import { FormRules } from 'naive-ui'
 
-export default defineComponent({
+const component = defineComponent({
   setup () {
     const localeRef = ref('语言1')
     const rules: FormRules = {
@@ -26,6 +26,8 @@ export default defineComponent({
     }
   }
 })
+
+export { component };
 </script>
 
 <template>
