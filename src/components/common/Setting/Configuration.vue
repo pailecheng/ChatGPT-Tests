@@ -21,9 +21,10 @@
         <div class="flex flex-wrap items-center gap-4">
           <NSelect
             style="width: 140px"
-            v-model:value="selected.value"
+            v-model="selected"
             :options="options"            
           />
+
         </div>
       </div>
       <div class="flex items-center space-x-4">
