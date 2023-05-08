@@ -1,8 +1,8 @@
-<script setup lang="ts">
+<script lang="ts">
 import { defineComponent, ref } from 'vue'
 import { FormRules } from 'naive-ui'
 
-const component = defineComponent({
+ defineComponent({
   setup () {
     const localeRef = ref('语言1')
     const rules: FormRules = {
@@ -26,28 +26,20 @@ const component = defineComponent({
     }
   }
 })
-
-export { component };
 </script>
 
 <template>
-  <div class="p-4 space-y-5 min-h-[200px]">
-    <div class="space-y-6">
-      <div class="flex items-center space-x-4">
-        <n-space vertical>
-          <n-radio-group v-model:value="locale">
-            <n-space>
-              <n-radio label="语言1" value="语言1" />
-              <n-radio label="语言2" value="语言2" />
-            </n-space>
-          </n-radio-group>
-          <n-form :model="model" :rules="rules">
-            <n-form-item label="输入点什么去掉 error" path="input">
-              <n-input v-model:value="model.input" />
-            </n-form-item>
-          </n-form>
-        </n-space>
-      </div>
-    </div>
-  </div>
+  <n-space vertical>
+    <n-radio-group v-model:value="locale">
+      <n-space>
+        <n-radio label="语言1" value="语言1" />
+        <n-radio label="语言2" value="语言2" />
+      </n-space>
+    </n-radio-group>
+    <n-form :model="model" :rules="rules">
+      <n-form-item label="输入点什么去掉 error" path="input">
+        <n-input v-model:value="model.input" />
+      </n-form-item>
+    </n-form>
+  </n-space>
 </template>
