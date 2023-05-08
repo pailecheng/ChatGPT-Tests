@@ -7,6 +7,7 @@ const locale = ref('gpt-3.5')
 const checkedValue = ref<string | null>(null)
 function handleChange(e: Event): void {
   checkedValue.value = (e.target as HTMLInputElement).value;
+  console.log(checkedValue.value);
 }
 </script>
 <template>
