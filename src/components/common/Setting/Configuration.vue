@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { FormRules, NButton,NRadio, NInput, NSelect } from 'naive-ui';
+import { FormRules, NButton,NRadioGroup,NRadio, NInput, NSelect } from 'naive-ui';
 
 const options = [
   { label: 'gpt-3.5-turbo', key: 'gpt-3.5', value: 'gpt-3.5-turbo' },
@@ -23,12 +23,12 @@ const model = ref({
 </script>
 <template>
   <n-space>
-          <n-radio-group v-model:value="locale">
+          <NRadioGroup v-model:value="locale">
             <n-space>
-              <NRadio label="语言1" value="语言1" />
-              <NRadio label="语言2" value="语言2" />
+              <NRadio label="GPT-3.5-turbo" value="gpt-3.5" />
+              <NRadio label="GPT-4" value="gpt-4" />
             </n-space>
-          </n-radio-group>
+          </NRadioGroup>
           <n-form :model="model" :rules="rules">
             <n-form-item label="输入点什么去掉 error" path="input">
               <NInput v-model="model.input" />
