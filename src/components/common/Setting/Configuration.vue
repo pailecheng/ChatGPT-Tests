@@ -3,9 +3,6 @@ import { ref } from 'vue';
 import { NButton,NRadioGroup,NRadio, NInput } from 'naive-ui';
 import { fetchChatSetting } from '@/api'
 
-<<<<<<< HEAD
-
-
 interface SettingState {
   apiModel?: string
   apiKey?: string
@@ -25,14 +22,7 @@ async function fetchSetting(): Promise<void> {
   } catch (error) {
     console.error(error);
   }
-=======
-const avatar = ref('abcdaesd');
-const locale = ref('gpt-3.5')
-const checkedValue = ref<string | null>(null)
-function handleChange(e: Event): void {
-  checkedValue.value = (e.target as HTMLInputElement).value;
-  console.log(checkedValue.value);
->>>>>>> acb180ce44936a6fd09fd6337d62f253aace2d83
+
 }
 </script>
 <template>
