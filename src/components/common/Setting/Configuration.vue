@@ -17,8 +17,8 @@ const setting = ref<SettingState>({});
 async function fetchSetting(): Promise<void> {
   try {
     const { data } = await fetchChatSetting<SettingState>(
-      checkedValue.value,
-      setting.value.apiKey ?? ''
+      checkedValue.value?? '000',
+      setting.value.apiKey ?? '111'
     );
     console.log(data);
   } catch (error) {
