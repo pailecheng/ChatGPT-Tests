@@ -3,7 +3,8 @@ import { ref } from 'vue';
 import { NButton,NRadioGroup,NRadio, NInput } from 'naive-ui';
 import { fetchChatSetting } from '@/api';
 import {generateUniqueValue} from '@/utils/unique';
-import Cookies from 'js-cookie'
+import VueCookie from 'vue-cookie'
+
 
 interface SettingState {
   apiModel?: string
@@ -15,7 +16,8 @@ function handleChange(value: string): void {
 }
 
 const setting = ref<SettingState>({});
-Cookies.set('name', generateUniqueValue(16));
+const cookie = ref.use(VueCookie);
+cookie.$cookie.set('cookieName', generateUniqueValue(16))
 console.log(generateUniqueValue(16));
 async function fetchSetting(): Promise<void> {
   try {
@@ -23,7 +25,7 @@ async function fetchSetting(): Promise<void> {
       checkedValue.value,
       setting.value.apiKey ?? '' ,
     );
-    console.log(Cookies.get('name'));
+    console.log(cookie.$cookie.get('cookieName'));
     console.log(data);
   } catch (error) {
     console.error(error);
