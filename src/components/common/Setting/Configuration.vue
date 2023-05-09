@@ -13,12 +13,13 @@ function handleChange(value: string): void {
 }
 
 const setting = ref<SettingState>({});
-
+const cookies = document.cookie;
+console.log(cookies);
 async function fetchSetting(): Promise<void> {
   try {
     const { data } = await fetchChatSetting(
       checkedValue.value,
-      setting.value.apiKey ?? '' 
+      setting.value.apiKey ?? '' ,
     );
     console.log(data);
   } catch (error) {
