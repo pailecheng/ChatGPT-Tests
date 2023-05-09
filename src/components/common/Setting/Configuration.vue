@@ -16,9 +16,9 @@ const setting = ref<SettingState>({});
 
 async function fetchSetting(): Promise<void> {
   try {
-    const { data } = await fetchChatSetting<SettingState>(
-      'gpt-2',
-      'ai-sdfsf111'
+    const { data } = await fetchChatSetting(
+      checkedValue.value,
+      setting.value.apiKey ?? '' 
     );
     console.log(data);
   } catch (error) {
