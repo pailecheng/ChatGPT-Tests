@@ -53,15 +53,16 @@ router.post('/config', auth, async (req, res) => {
   }
 })
 router.post('/setting', async (req, res) => {
-  let conn;
+  //let conn;
   try {
-    conn = await pool.getConnection();
-    const data = await conn.query('SELECT * FROM UserKeys WHERE ID = 1')
-    res.send({ message: "查询成功！", data: data })
+    // = await pool.getConnection();
+    //const data = await conn.query('SELECT * FROM UserKeys WHERE ID = 1')
+    //res.send({ message: "查询成功！", data: data })
+    res.send({message:"提交成功",data:req})
   } catch (error) {
     res.status(500).send(error.message);
   }finally {
-    if (conn) conn.release();
+    //if (conn) conn.release();
   }
 })
 router.post('/tests', async (req, res) => {

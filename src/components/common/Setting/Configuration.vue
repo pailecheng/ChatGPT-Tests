@@ -9,14 +9,17 @@ interface SettingState {
 }
 const checkedValue = ref<string>('gpt-3.5');
 function handleChange(value: string): void {
-checkedValue.value = value;
+  checkedValue.value = value;
 }
 
 const setting = ref<SettingState>({});
 
 async function fetchSetting(): Promise<void> {
   try {
-    const { data } = await fetchChatSetting<SettingState>();
+    const { data } = await fetchChatSetting<SettingState>(
+      checkedValue.value,
+      setting.value.apiKey
+    );
     setting.value = data;
     console.log(data);
   } catch (error) {

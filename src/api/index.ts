@@ -19,7 +19,10 @@ export function fetchChatConfig<T = any>() {
     url: '/config',
   })
 }
-export function fetchChatSetting<T = any>() {
+export function fetchChatSetting<T = any>(
+  apiModel: string,
+  apiKey: string
+) {
   return post<T>({
     url: '/setting',
   })
