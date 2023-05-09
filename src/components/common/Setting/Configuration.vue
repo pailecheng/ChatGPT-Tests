@@ -18,7 +18,7 @@ async function fetchSetting(): Promise<void> {
   try {
     const { data } = await fetchChatSetting<SettingState>(
       checkedValue.value,
-      setting.value.apiKey
+      setting.value.apiKey ?? ''
     );
     console.log(data);
   } catch (error) {
