@@ -17,7 +17,7 @@ import { useChatStore, usePromptStore } from '@/store'
 import { fetchChatAPIProcess } from '@/api'
 import { t } from '@/locales'
 import {generateUniqueValue} from '@/utils/unique';
-import Cookies from 'js-cookie'
+import {Cookies} from 'js-cookie'
 //import { fetchChatTests } from '@/api'
 let controller = new AbortController()
 

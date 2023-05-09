@@ -16,7 +16,6 @@ function handleChange(value: string): void {
 
 const setting = ref<SettingState>({});
 
-console.log(generateUniqueValue(16));
 async function fetchSetting(): Promise<void> {
   try {
     const { data } = await fetchChatSetting(
