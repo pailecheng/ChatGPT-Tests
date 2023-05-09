@@ -17,10 +17,6 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "typeRoots": [
-      "./node_modules/@types",
-      "./types"
-    ],
     "types": ["vite/client", "node", "naive-ui/volar"]
   },
   "exclude": ["node_modules", "dist", "service"]
