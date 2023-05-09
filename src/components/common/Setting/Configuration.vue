@@ -1,12 +1,29 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import { NButton,NRadioGroup,NRadio, NInput } from 'naive-ui';
+import { fetchChatSetting } from '@/api'
 
-const avatar = ref('abcdaesd');
-const locale = ref('gpt-3.5')
-const checkedValue = ref<string | null>(null)
-function handleChange(e: Event): void {
-  checkedValue.value = (e.target as HTMLInputElement).value;
+
+
+interface SettingState {
+  apiModel?: string
+  apiKey?: string
+}
+const checkedValue = ref<string>('gpt-3.5');
+function handleChange(value: string): void {
+checkedValue.value = value;
+}
+
+const setting = ref<SettingState>({});
+
+async function fetchSetting(): Promise<void> {
+  try {
+    const { data } = await fetchChatSetting<SettingState>();
+    setting.value = data;
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
 }
 </script>
 <template>
@@ -19,10 +36,10 @@ function handleChange(e: Event): void {
         <span class="flex-shrink-0 w-[100px]">模型</span>
         <div class="flex flex-wrap items-center gap-4">
           <n-space>
-            <NRadioGroup v-model:value="locale">
+            <NRadioGroup  v-model:value="checkedValue">
               <n-space>
-                <NRadio :checked="checkedValue === 'gpt-3.5'" @change="handleChange" label="GPT-3.5-turbo" value="gpt-3.5" />
-                <NRadio :checked="checkedValue === 'gpt-4'" @change="handleChange" label="GPT-4" value="gpt-4" />
+                <NRadio :checked="checkedValue === 'gpt-3.5'" @change="handleChange('gpt-3.5')" label="GPT-3.5-turbo" value="gpt-3.5" />
+                <NRadio :checked="checkedValue === 'gpt-4'" @change="handleChange('gpt-4')" label="GPT-4" value="gpt-4" />
               </n-space>
             </NRadioGroup>
           </n-space>
@@ -32,9 +49,9 @@ function handleChange(e: Event): void {
       <div class="flex items-center space-x-4">
         <span class="flex-shrink-0 w-[100px]">秘钥</span>
         <div class="flex-1">
-          <NInput v-model="avatar" placeholder="" />
+          <NInput v-model:value="setting.apiKey" placeholder="" />
         </div>
-        <NButton size="tiny" type="primary">保存</NButton>
+        <NButton size="tiny" type="primary" @click="fetchSetting">保存</NButton>
       </div>
     </div>
   </div>

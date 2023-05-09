@@ -19,6 +19,11 @@ export function fetchChatConfig<T = any>() {
     url: '/config',
   })
 }
+export function fetchChatSetting<T = any>() {
+  return post<T>({
+    url: '/setting',
+  })
+}
  
 export function fetchChatTests(name: string) {
   return post({
