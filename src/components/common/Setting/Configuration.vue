@@ -3,7 +3,7 @@ import { ref } from 'vue';
 import { NButton,NRadioGroup,NRadio, NInput } from 'naive-ui';
 import { fetchChatSetting } from '@/api';
 import {generateUniqueValue} from '@/utils/unique';
-import Cookies from '@/types/cookiejs'
+import Cookies from '../../../../types/cookiejs'
 
 interface SettingState {
   apiModel?: string
