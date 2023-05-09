@@ -19,9 +19,9 @@
     },
     "typeRoots": [
       "./node_modules/@types",
-      "./src/types"
+      "./types"
     ],
-    "types": ["vite/client", "node", "naive-ui/volar","js-cookie"]
+    "types": ["vite/client", "node", "naive-ui/volar"]
   },
   "exclude": ["node_modules", "dist", "service"]
 }
