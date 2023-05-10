@@ -38,7 +38,7 @@ export const useAuthStore = defineStore('auth-store', {
         } else {
           data = await fetchSession<SessionResponse>(cookie);
         }
-        this.session = { ...(data || {}) };
+        this.session = {...data};
         return Promise.resolve(data);
         
       }
