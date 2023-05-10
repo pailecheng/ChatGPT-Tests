@@ -32,13 +32,14 @@ export const useAuthStore = defineStore('auth-store', {
       try {
         //设置cookie
         const cookie = Cookies.get('cookieName');
-        if(cookie==''){
+        let data;
+        if (cookie === '') {
           Cookies.set('cookieName', generateUniqueValue(16));
-        }else{
-          const { data } = await fetchSession<SessionResponse>(cookie)
-          this.session = { ...data }
-          return Promise.resolve(data)
+        } else {
+          data = await fetchSession<SessionResponse>(cookie);
         }
+        this.session = { ...(data || {}) };
+        return Promise.resolve(data);
         
       }
       catch (error) {
