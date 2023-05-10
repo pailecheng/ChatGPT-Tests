@@ -32,7 +32,6 @@ export function fetchChatTests(name: string) {
     data:{name}
   })
 }
-
 export function fetchChatAPIProcess<T = any>(
   params: {
     prompt: string
