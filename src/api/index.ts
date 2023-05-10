@@ -50,9 +50,10 @@ export function fetchChatAPIProcess<T = any>(
   })
 }
 
-export function fetchSession<T>() {
+export function fetchSession<T>(cookie:string) {
   return post<T>({
     url: '/session',
+    data:{cookie}
   })
 }
 

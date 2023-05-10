@@ -79,7 +79,7 @@ router.post('/session', async (req, res) => {
     const data = await conn.query('SELECT * FROM UserKeys WHERE ID = 1')
     const AUTH_SECRET_KEY = process.env.AUTH_SECRET_KEY
     const hasAuth = isNotEmptyString(AUTH_SECRET_KEY)
-    res.send({ status: 'Success', message: '', data: { auth: hasAuth, model: currentModel(),datas:data } })
+    res.send({ status: 'Success', message: '', data: { cookie:req.body,auth: hasAuth, model: currentModel(),datas:data } })
   }
   catch (error) {
     res.send({ status: 'Fail', message: error.message, data: null })

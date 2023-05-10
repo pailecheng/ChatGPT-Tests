@@ -2,6 +2,7 @@ import { defineStore } from 'pinia'
 import { getToken, removeToken, setToken } from './helper'
 import { store } from '@/store'
 import { fetchSession } from '@/api'
+import * as Cookies from 'tiny-cookie'
 
 interface SessionResponse {
   auth: boolean
@@ -28,7 +29,8 @@ export const useAuthStore = defineStore('auth-store', {
   actions: {
     async getSession() {
       try {
-        const { data } = await fetchSession<SessionResponse>()
+        const cookie = Cookies.get('cookieName')
+        const { data } = await fetchSession<SessionResponse>(cookie??'0')
         this.session = { ...data }
         return Promise.resolve(data)
       }
