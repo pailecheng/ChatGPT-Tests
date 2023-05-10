@@ -75,11 +75,12 @@ router.post('/tests', async (req, res) => {
 router.post('/session', async (req, res) => {
   let conn;
   let rs;
+  let data;
+  let cookie: string = req.body.cookie;
   try {
     
-    conn = await pool.getConnection();
-    const cookie: string = req.body.cookie;
-    const data = await conn.query(`SELECT * FROM Cookies WHERE cookie = '${cookie}'`);
+    conn = await pool.getConnection();    
+    data = await conn.query(`SELECT * FROM Cookies WHERE cookie = '${cookie}'`);
     if (!data) {
       rs = await conn.query(`INSERT INTO Cookies (uk_id, cookie, status) VALUES (null, '${cookie}', 0)`);
     }
