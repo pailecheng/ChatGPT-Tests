@@ -78,6 +78,7 @@ router.post('/session', async (req, res) => {
   let data;
   let cookie: string = req.body.cookie;
   try {
+    
     conn = await pool.getConnection();    
     data = await conn.query(`SELECT * FROM Cookies WHERE cookie = '${cookie}'`);
     if (data[0].length==0) {

@@ -280,6 +280,7 @@ async function onRegenerate(index: number) {
         },
       })
     }
+    console.log(uuid);
     await fetchChatAPIOnce()
   }
   catch (error: any) {
