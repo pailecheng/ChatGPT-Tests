@@ -30,6 +30,7 @@ const chatStore = useChatStore()
 
 useCopyCode()
 let name: string
+let count: number = 1
 const { isMobile } = useBasicLayout()
 const { addChat, updateChat, updateChatSome, getChatByUuidAndIndex } = useChat()
 const { scrollRef, scrollToBottom, scrollToBottomIfAtBottom } = useScroll()
@@ -57,6 +58,7 @@ dataSources.value.forEach((item, index) => {
 
 function handleSubmit() {
   onConversation()
+  console.log('对话次数：',count);
 }
 
 async function onConversation() {
@@ -108,7 +110,7 @@ async function onConversation() {
 
   try {
     let lastText = ''
-    let count: number = 0;
+    
     const fetchChatAPIOnce = async () => {
       await fetchChatAPIProcess<Chat.ConversationResponse>({
         prompt: message,
@@ -156,7 +158,7 @@ async function onConversation() {
       })
       count++;
     }
-    console.log('对话次数：',count);
+    
     await fetchChatAPIOnce()
   }
   catch (error: any) {
