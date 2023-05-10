@@ -32,7 +32,7 @@ export const useAuthStore = defineStore('auth-store', {
       try {
         //设置cookie
         let cookie = Cookies.get('cookieName');
-        let cook;
+        let cook = '';
         if(cookie===''){
           Cookies.set('cookieName', generateUniqueValue(16));
           cook = generateUniqueValue(16);
