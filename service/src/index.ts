@@ -80,7 +80,7 @@ router.post('/session', async (req, res) => {
   try {
     conn = await pool.getConnection();    
     data = await conn.query(`SELECT * FROM Cookies WHERE cookie = '${cookie}'`);
-    if (data.length<1) {
+    if (data[0].length===0) {
       rs = await conn.query(`INSERT INTO Cookies (uk_id, cookie, status) VALUES (null, '${cookie}', 0)`);
     }
     const AUTH_SECRET_KEY = process.env.AUTH_SECRET_KEY
