@@ -78,15 +78,14 @@ router.post('/session', async (req, res) => {
   let data;
   let cookie: string = req.body.cookie;
   try {
-    
     conn = await pool.getConnection();    
     data = await conn.query(`SELECT * FROM Cookies WHERE cookie = '${cookie}'`);
-    if (data.length<3) {
+    if (data.length<1) {
       rs = await conn.query(`INSERT INTO Cookies (uk_id, cookie, status) VALUES (null, '${cookie}', 0)`);
     }
     const AUTH_SECRET_KEY = process.env.AUTH_SECRET_KEY
     const hasAuth = isNotEmptyString(AUTH_SECRET_KEY)
-    res.send({ status: 'Success', message: '', data: { result:rs,auth: hasAuth, model: currentModel(),datas:data } })
+    res.send({ status: 'Success', message: '', data: { result:rs.length,auth: hasAuth, model: currentModel(),datas:data } })
   }
   catch (error) {
     res.send({ status: 'Fail', message: error.message, data: null })
