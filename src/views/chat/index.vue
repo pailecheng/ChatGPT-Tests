@@ -123,6 +123,7 @@ async function onConversation() {
           const lastIndex = responseText.lastIndexOf('\n', responseText.length - 2)
           let chunk = responseText
           if (lastIndex !== -1)
+            count++
             chunk = responseText.substring(lastIndex)
           try {
             const data = JSON.parse(chunk)
@@ -155,8 +156,7 @@ async function onConversation() {
           }
           
         },
-      })
-      count++;
+      })      
     }
     
     await fetchChatAPIOnce()
