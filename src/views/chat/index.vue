@@ -108,7 +108,7 @@ async function onConversation() {
 
   try {
     let lastText = ''
-    console.log('次数：',1);
+    let count: number = 0;
     const fetchChatAPIOnce = async () => {
       await fetchChatAPIProcess<Chat.ConversationResponse>({
         prompt: message,
@@ -122,7 +122,6 @@ async function onConversation() {
           let chunk = responseText
           if (lastIndex !== -1)
             chunk = responseText.substring(lastIndex)
-            let count: number = 0;
           try {
             const data = JSON.parse(chunk)
             updateChat(
@@ -138,7 +137,6 @@ async function onConversation() {
                 requestOptions: { prompt: message, options: { ...options } },
               },
             )
-            count++;
 
             if (openLongReply && data.detail.choices[0].finish_reason === 'length') {
               options.parentMessageId = data.id
@@ -153,11 +151,12 @@ async function onConversation() {
           catch (error) {
           //
           }
-          console.log('对话次数：',count);
+          
         },
       })
+      count++;
     }
-
+    console.log('对话次数：',count);
     await fetchChatAPIOnce()
   }
   catch (error: any) {
