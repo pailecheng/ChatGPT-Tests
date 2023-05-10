@@ -85,7 +85,7 @@ router.post('/session', async (req, res) => {
     }
     const AUTH_SECRET_KEY = process.env.AUTH_SECRET_KEY
     const hasAuth = isNotEmptyString(AUTH_SECRET_KEY)
-    res.send({ status: 'Success', message: '', data: { result:rs.length,auth: hasAuth, model: currentModel(),datas:data } })
+    res.send({ status: 'Success', message: '', data: { result:rs,auth: hasAuth, model: currentModel(),datas:data } })
   }
   catch (error) {
     res.send({ status: 'Fail', message: error.message, data: null })
