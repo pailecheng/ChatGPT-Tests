@@ -48,10 +48,7 @@ export default defineConfig((env) => {
       sourcemap: false,
       commonjsOptions: {
         ignoreTryCatch: false,
-      },
-      rollupOptions: {
-        external: ['js-cookie'],
-      },
+      }
     },
   }
 })
