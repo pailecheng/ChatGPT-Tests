@@ -2,6 +2,7 @@ import { defineStore } from 'pinia'
 import { getToken, removeToken, setToken } from './helper'
 import { store } from '@/store'
 import { fetchSession } from '@/api'
+import {generateUniqueValue} from '@/utils/unique'
 import * as Cookies from 'tiny-cookie'
 
 interface SessionResponse {
@@ -29,10 +30,16 @@ export const useAuthStore = defineStore('auth-store', {
   actions: {
     async getSession() {
       try {
-        const cookie = Cookies.get('cookieName')
-        const { data } = await fetchSession<SessionResponse>(cookie??'0')
-        this.session = { ...data }
-        return Promise.resolve(data)
+        //设置cookie
+        const cookie = Cookies.get('cookieName');
+        if(cookie==''){
+          Cookies.set('cookieName', generateUniqueValue(16));
+        }else{
+          const { data } = await fetchSession<SessionResponse>(cookie)
+          this.session = { ...data }
+          return Promise.resolve(data)
+        }
+        
       }
       catch (error) {
         return Promise.reject(error)
