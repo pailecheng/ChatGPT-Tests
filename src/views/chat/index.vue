@@ -108,6 +108,7 @@ async function onConversation() {
 
   try {
     let lastText = ''
+    console.log('次数：',1);
     const fetchChatAPIOnce = async () => {
       await fetchChatAPIProcess<Chat.ConversationResponse>({
         prompt: message,
@@ -238,7 +239,6 @@ async function onRegenerate(index: number) {
 
   try {
     let lastText = ''
-    console.log('uuid',uuid)
     const fetchChatAPIOnce = async () => {
       await fetchChatAPIProcess<Chat.ConversationResponse>({
         prompt: message,
