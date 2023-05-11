@@ -153,7 +153,6 @@ async function onConversation() {
           catch (error) {
           //
           }
-          count++
         },
       })      
     }
@@ -208,6 +207,7 @@ async function onConversation() {
   finally {
     loading.value = false
   }
+  count++
 }
 
 async function onRegenerate(index: number) {
