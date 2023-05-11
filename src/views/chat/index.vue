@@ -16,13 +16,16 @@ import { useBasicLayout } from '@/hooks/useBasicLayout'
 import { useChatStore, usePromptStore } from '@/store'
 import { fetchChatAPIProcess } from '@/api'
 import { t } from '@/locales'
+//import {generateUniqueValue} from '@/utils/unique'
+import * as Cookies from 'tiny-cookie'
 //import { fetchChatTests } from '@/api'
 let controller = new AbortController()
 
 const openLongReply = import.meta.env.VITE_GLOB_OPEN_LONG_REPLY === 'true'
 
 
-
+let cookie = Cookies.get('cookieName');
+console.log(cookie);
 const route = useRoute()
 const dialog = useDialog()
 const ms = useMessage()
