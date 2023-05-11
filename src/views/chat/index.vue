@@ -467,7 +467,7 @@ const placeholder = computed(() => {
 })
 
 const buttonDisabled = computed(() => {
-  return loading.value || !prompt.value || prompt.value.trim() === ''||count<3
+  return loading.value || !prompt.value || prompt.value.trim() === ''&&count<3
 })
 
 const footerClass = computed(() => {
