@@ -7,7 +7,6 @@ export function setupPageGuard(router: Router) {
     if (!authStore.session) {
       try {
         const data = await authStore.getSession()
-        console.log(data)
         if (String(data.auth) === 'false' && authStore.token)
           authStore.removeToken()
         if (to.path === '/500')
