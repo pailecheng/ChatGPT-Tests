@@ -24,7 +24,7 @@ let controller = new AbortController()
 const openLongReply = import.meta.env.VITE_GLOB_OPEN_LONG_REPLY === 'true'
 
 
-let cookie = Cookies.get('cookieName');
+let cookie = Cookies.get('member');
 console.log(cookie);
 const route = useRoute()
 const dialog = useDialog()
