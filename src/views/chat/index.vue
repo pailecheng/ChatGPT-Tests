@@ -33,7 +33,7 @@ const chatStore = useChatStore()
 
 useCopyCode()
 let name: string
-let count: number = 1
+let count: number = 0
 const { isMobile } = useBasicLayout()
 const { addChat, updateChat, updateChatSome, getChatByUuidAndIndex } = useChat()
 const { scrollRef, scrollToBottom, scrollToBottomIfAtBottom } = useScroll()
