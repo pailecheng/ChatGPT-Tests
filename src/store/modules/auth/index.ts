@@ -41,7 +41,7 @@ export const useAuthStore = defineStore('auth-store', {
           cook = cookie;
         }
         const { data } = await fetchSession<SessionResponse>(cook??'')
-        this.cookie = data.model
+        this.cookie = data.result
         this.session = { ...data }
         return Promise.resolve(data)
       }
