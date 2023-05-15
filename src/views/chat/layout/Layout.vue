@@ -11,7 +11,10 @@ const router = useRouter()
 const appStore = useAppStore()
 const chatStore = useChatStore()
 const authStore = useAuthStore()
-console.log(authStore.getToken);
+if(!authStore.session){
+  console.log(authStore.session.session);
+}
+
 console.log(authStore.cookie);
 router.replace({ name: 'Chat', params: { uuid: chatStore.active } })
 
