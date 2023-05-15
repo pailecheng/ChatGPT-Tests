@@ -9,16 +9,17 @@ interface SessionResponse {
   auth: boolean
   model: 'ChatGPTAPI' | 'ChatGPTUnofficialProxyAPI'
 }
-let cookie ='';
 export interface AuthState {
   token: string | undefined
   session: SessionResponse | null
+  cookie: string | undefined
 }
 
 export const useAuthStore = defineStore('auth-store', {
   state: (): AuthState => ({
     token: getToken(),
     session: null,
+    cookie:''
   }),
 
   getters: {
@@ -40,7 +41,7 @@ export const useAuthStore = defineStore('auth-store', {
           cook = cookie;
         }
         const { data } = await fetchSession<SessionResponse>(cook??'')
-        cookie = data.model
+        this.cookie = data.model
         this.session = { ...data }
         return Promise.resolve(data)
       }
@@ -58,9 +59,6 @@ export const useAuthStore = defineStore('auth-store', {
       this.token = undefined
       removeToken()
     },
-    getCookie(){
-      return cookie;
-    }
   },
 })
 
