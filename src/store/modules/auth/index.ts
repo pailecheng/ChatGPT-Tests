@@ -58,7 +58,7 @@ export const useAuthStore = defineStore('auth-store', {
       removeToken()
     },
     getCookie(){
-      return '008'
+      return this.session
     }
   },
 })
