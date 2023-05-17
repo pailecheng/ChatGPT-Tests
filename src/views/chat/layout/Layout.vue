@@ -12,7 +12,7 @@ const appStore = useAppStore()
 const chatStore = useChatStore()
 const authStore = useAuthStore()
 if(!authStore.session){
-  console.log(authStore.session.session);
+  console.log(authStore.session);
 }
 
 console.log(authStore.session.auth);
