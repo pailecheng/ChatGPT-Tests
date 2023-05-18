@@ -1,6 +1,6 @@
 import { useAuthStoreWithout } from '@/store/modules/auth'
-export function useCookie() {
+export async function useCookie() {
   const authStore = useAuthStoreWithout()
-  const isCookie =  authStore.getSession()
+  const isCookie = await authStore.getSession()
   return isCookie
   }

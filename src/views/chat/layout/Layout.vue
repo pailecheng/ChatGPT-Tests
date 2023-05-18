@@ -15,8 +15,11 @@ const authStore = useAuthStore()
 router.replace({ name: 'Chat', params: { uuid: chatStore.active } })
 
 const { isMobile } = useBasicLayout()
-const  isCookie = useCookie();
-console.log(isCookie.model);
+useCookie().then(result => {
+  console.log(result);
+}).catch(error => {
+  console.error(error);
+});
 const collapsed = computed(() => appStore.siderCollapsed)
 
 const needPermission = computed(() => !!authStore.session?.auth && !authStore.token)
