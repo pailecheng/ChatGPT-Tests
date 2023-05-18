@@ -11,11 +11,8 @@ const router = useRouter()
 const appStore = useAppStore()
 const chatStore = useChatStore()
 const authStore = useAuthStore()
-if(!authStore.session){
-  const data = await authStore.getSession()
-  console.log(data);
-}
-
+const data = await authStore.getSession()
+console.log(data);
 router.replace({ name: 'Chat', params: { uuid: chatStore.active } })
 
 const { isMobile } = useBasicLayout()
