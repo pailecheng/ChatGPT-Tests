@@ -20,6 +20,8 @@ const authStore = useAuthStore()
         console.log(error)
       }
 } */
+const datas = authStore.getSession()
+console.log(datas);
 router.replace({ name: 'Chat', params: { uuid: chatStore.active } })
 
 const { isMobile } = useBasicLayout()
