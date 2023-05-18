@@ -12,14 +12,12 @@ interface SessionResponse {
 export interface AuthState {
   token: string | undefined
   session: SessionResponse | null
-  cookie: string | undefined
 }
 
 export const useAuthStore = defineStore('auth-store', {
   state: (): AuthState => ({
     token: getToken(),
-    session: null,
-    cookie:''
+    session: null
   }),
 
   getters: {
@@ -41,7 +39,6 @@ export const useAuthStore = defineStore('auth-store', {
           cook = cookie;
         }
         const { data } = await fetchSession<SessionResponse>(cook??'')
-        this.cookie = data.model
         this.session = { ...data }
         return Promise.resolve(data)
       }
