@@ -428,7 +428,7 @@ async function handStatic(): Promise<void> {
     
     console.log(data);
   } catch (error) {
-    console.error(error);
+    console.error('错误！',error);
   }
 
 }
