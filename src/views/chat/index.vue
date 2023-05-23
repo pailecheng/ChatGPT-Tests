@@ -423,7 +423,7 @@ async function handStatic(): Promise<void> {
   try {
     const cookie =  Cookies.get('cookieName');
     const { data } = await fetchStatic(
-      cookie,
+      cookie?? '',
     );
     
     console.log(data);
