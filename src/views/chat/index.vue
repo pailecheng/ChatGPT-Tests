@@ -420,17 +420,11 @@ function handleEnter(event: KeyboardEvent) {
 
 
 async function handStatic(): Promise<void> {
-  try {
-    const cookie =  Cookies.get('cookieName');
-    const { data } = await fetchStatic(
+  const cookie =  Cookies.get('cookieName');
+  const { data } = await fetchStatic(
       cookie?? '',
-    );
-    
+    );    
     console.log(data);
-  } catch (error) {
-    console.error('错误！',error);
-  }
-
 }
 
 interface TestResponse {
