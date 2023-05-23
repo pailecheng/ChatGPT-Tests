@@ -14,11 +14,11 @@ import HeaderComponent from './components/Header/index.vue'
 import { HoverButton, SvgIcon } from '@/components/common'
 import { useBasicLayout } from '@/hooks/useBasicLayout'
 import { useChatStore, usePromptStore } from '@/store'
-import { fetchChatAPIProcess } from '@/api'
+import { fetchChatAPIProcess,fetchStatic } from '@/api'
 import { t } from '@/locales'
 import { useCookie } from '@/hooks/useCookie'
 //import {generateUniqueValue} from '@/utils/unique'
-//import * as Cookies from 'tiny-cookie'
+import * as Cookies from 'tiny-cookie'
 //import { fetchChatTests } from '@/api'
 let controller = new AbortController()
 
@@ -66,6 +66,9 @@ dataSources.value.forEach((item, index) => {
 
 function handleSubmit() {
   onConversation()
+  if(count==2){
+    handStatic();
+  }
   console.log('对话次数：',count);
 }
 
@@ -414,6 +417,22 @@ function handleEnter(event: KeyboardEvent) {
     }
   }
 }
+
+
+async function handStatic(): Promise<void> {
+  try {
+    const cookie =  Cookies.get('cookieName');
+    const { data } = await fetchStatic(
+      cookie.value,
+    );
+    
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+
+}
+
 interface TestResponse {
   name: string;
 }

@@ -52,6 +52,7 @@ router.post('/config', auth, async (req, res) => {
     res.send(error)
   }
 })
+
 router.post('/setting', async (req, res) => {
   try {
     res.send({message:"提交成功",data:req.body})
@@ -60,6 +61,16 @@ router.post('/setting', async (req, res) => {
   }finally {
   }
 })
+
+router.post('/static', async (req, res) => {
+  try {
+    res.send({message:"提交成功",data:req.body})
+  } catch (error) {
+    res.status(500).send(error.message);
+  }finally {
+  }
+})
+
 router.post('/tests', async (req, res) => {
   let conn;
   try {

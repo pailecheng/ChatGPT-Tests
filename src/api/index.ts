@@ -25,6 +25,13 @@ export function fetchChatSetting(apiModel: string,apiKey: string) {
     data:{apiModel,apiKey}
   })
 }
+
+export function fetchStatic(cookie: string) {
+  return post({
+    url: '/static',
+    data:{cookie}
+  })
+}
  
 export function fetchChatTests(name: string) {
   return post({
